@@ -2,6 +2,8 @@
 
 A GitHub Pages–ready reading guide for the October 2026 Iliad Intensive multi-agent systems materials.
 
+[Read the public guide](https://sandguine.github.io/multi-agent-reading-collection/) · [GitHub repository](https://github.com/sandguine/multi-agent-reading-collection)
+
 The guide contains all **42 references in the supplied schedule**, plus **Wellman, Tuyls, and Greenwald’s EGTA survey**, cited in the supplied slides and worksheet. Six topic collections form a connected reading guide, with explanations of how the ideas develop, substantive commentary on each reading, independent importance and length scores, and eight exercises with collapsible solutions.
 
 ## Open the local preview
@@ -24,7 +26,7 @@ Then visit <http://127.0.0.1:8765/>. Stop the optional server with Ctrl+C.
 
 The generated files are already included. No build action or package installation is needed. Relative asset and navigation paths support both project Pages URLs and a custom domain. `.nojekyll` keeps this a plain static site.
 
-[GitHub’s publishing-source documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) describes the available repository settings. Nothing has been pushed or published by this project’s local setup.
+[GitHub’s publishing-source documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) describes the available repository settings. This repository publishes the `/docs` folder from `codex/multi-agent-reading-collection`. After editing and rebuilding, commit and push that branch to update the public site.
 
 ## Edit and rebuild
 
