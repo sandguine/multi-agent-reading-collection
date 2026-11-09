@@ -1,0 +1,32 @@
+[
+  {
+    "file": "materials/03-ai-control.pdf",
+    "original_archive_path": "october/slides/03_morgan_multi-agent_ai_control.pdf",
+    "sha256": "ade583f688d2c3ea3b241bcf223beed36dc7649c8ba6336e3379ee6e2dfadacc"
+  },
+  {
+    "file": "materials/october-schedule.docx",
+    "original_archive_path": "october/october schedule multi-agent systems.docx",
+    "sha256": "7036c769ae9ae38d47872ad7713b54c53928a2af3fba12668f622c8946ffed2c"
+  },
+  {
+    "file": "materials/04-multi-agent-systems.pdf",
+    "original_archive_path": "october/slides/04_multi_agent_systems.pdf",
+    "sha256": "b38ce748238dfb6f6b9df396b68c3e9b1dc52f6ed77842a41fe868cedb58ac70"
+  },
+  {
+    "file": "materials/exercises-and-solutions.pdf",
+    "original_archive_path": "october/multi-agent systems exercises and solutions.pdf",
+    "sha256": "9589bb953f44bda0773775d9e74d2cabe813bce49fad9f78bfa2f3297ee530cc"
+  },
+  {
+    "file": "materials/01-open-source-game-theory.pdf",
+    "original_archive_path": "october/slides/01_agent-foundations-multi-agent.pdf",
+    "sha256": "7c1f3347dc5e075b9ea78c74883af8df93079c3f7b844f350c3443712d64f9b1"
+  },
+  {
+    "file": "materials/02-stochastic-dynamics.pdf",
+    "original_archive_path": "october/slides/02_james_stochastics_dynamics_of_marl.pdf",
+    "sha256": "c514c73d06bfa159057ff8bfab2c1b746f9ce5877344702df15f0dc719931f8d"
+  }
+]

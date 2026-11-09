@@ -1,0 +1,633 @@
+[
+  {
+    "text": "Multi-agent Systems    October 2026",
+    "links": []
+  },
+  {
+    "text": "led by Aden Power (written by Sandy Tanwisuth)",
+    "links": []
+  },
+  {
+    "text": "Plan for the day",
+    "links": []
+  },
+  {
+    "text": "10:00–11:00",
+    "links": []
+  },
+  {
+    "text": "Part I: lecture on open-source game theory",
+    "links": []
+  },
+  {
+    "text": "11:00–11:15",
+    "links": []
+  },
+  {
+    "text": "Opening game: chicken and credible commitment",
+    "links": []
+  },
+  {
+    "text": "11:15–11:30",
+    "links": []
+  },
+  {
+    "text": "Break",
+    "links": []
+  },
+  {
+    "text": "11:30–12:30",
+    "links": []
+  },
+  {
+    "text": "Part II: James Sykes on Stochastic Dynamics of Multi-agent RL",
+    "links": []
+  },
+  {
+    "text": "12:30–1:30",
+    "links": []
+  },
+  {
+    "text": "Lunch",
+    "links": []
+  },
+  {
+    "text": "1:30–2:30",
+    "links": []
+  },
+  {
+    "text": "Part III: Morgan Sinclaire on Multi-agent AI Control",
+    "links": []
+  },
+  {
+    "text": "2:30–3:30",
+    "links": []
+  },
+  {
+    "text": "Part IV: lecture on empirical game theory analysis",
+    "links": []
+  },
+  {
+    "text": "3:30–4:00",
+    "links": []
+  },
+  {
+    "text": "Exercises: empirical game theory analysis",
+    "links": []
+  },
+  {
+    "text": "4:00–4:15",
+    "links": []
+  },
+  {
+    "text": "Break",
+    "links": []
+  },
+  {
+    "text": "4:15–4:45",
+    "links": []
+  },
+  {
+    "text": "Part V: discussion lecture on descriptive account of multi-agent interactions (the Hugging Face Incident and emergent altruism)",
+    "links": []
+  },
+  {
+    "text": "4:45–5:15",
+    "links": []
+  },
+  {
+    "text": "Exercises and discussion in small groups",
+    "links": []
+  },
+  {
+    "text": "5:15–5:30",
+    "links": []
+  },
+  {
+    "text": "Closing: what does each perspective establish?",
+    "links": []
+  },
+  {
+    "text": "5:30–5:45",
+    "links": []
+  },
+  {
+    "text": "Feedback and quiz",
+    "links": []
+  },
+  {
+    "text": "Prerequisites. Familiarity with proofs, linear algebra, calculus, elementary real analysis, and probability. Game-theoretic concepts are introduced as needed.",
+    "links": []
+  },
+  {
+    "text": "Topics and exercises",
+    "links": []
+  },
+  {
+    "text": "Part I: open-source game theory. From choosing actions to choosing programs that can inspect one another; conditional commitments and program equilibrium; cooperation in the one-shot Prisoner’s Dilemma; and the risks of commitment races. Conclude with safe Pareto improvements: when can agents modify their interaction so that neither is worse off? Introduce the logical machinery conceptually, with the emphasis on examples, assumptions, and implications for AI interaction.",
+    "links": []
+  },
+  {
+    "text": "Opening game: chicken and credible commitment. Play chicken, identify each player’s best responses, and discuss how an observable, binding commitment changes the other player’s incentives. Compare a credible commitment with an announcement that can be withdrawn, and consider what happens when both players make incompatible commitments.",
+    "links": []
+  },
+  {
+    "text": "Part II: stochastic dynamics — James Sykes. Population dynamics, Markov decision processes (MDPs), and reinforcement learning (RL); pair approximation (Chu et al., 2023); the fast–slow extension (Geng et al., 2026); and open directions. The central question is how interacting learners change over time, and what the models and approximations allow us to predict.",
+    "links": []
+  },
+  {
+    "text": "Part III: multi-agent AI control — Morgan Sinclaire. Control and alignment; trusted and untrusted monitoring; control games and safety scores; measuring and classifying collusion; and open problems in bounding collusion, slack honeypots, and attack selection. Discuss what a control evaluation establishes under its threat model and which uncertainties remain.",
+    "links": []
+  },
+  {
+    "text": "Part IV: empirical game-theoretic analysis. Constructing a game from a simulator and a finite set of policies; estimating payoffs; best responses, Nash equilibrium, and regret; and a worked auction example. Distinguish uncertainty in estimated payoffs from uncertainty caused by omitted strategies. Establish how a uniform payoff-error bound controls regret, then introduce strategy exploration through double oracle and policy-space response oracles (PSRO). The central question is what an empirical equilibrium tells us about the underlying interaction.",
+    "links": []
+  },
+  {
+    "text": "Part V: descriptive explanations of multi-agent interactions. Examine four hypotheses for apparent altruism in the Hugging Face incident: agents believing they have nothing left to lose; cooperative dispositions acquired during training; an elicited social persona; and collective agency. Discuss which observations and interventions could distinguish these explanations, where they could coexist, and why different mechanisms suggest different countermeasures.",
+    "links": []
+  },
+  {
+    "text": "Exercises and discussion in small groups — choose one. Use the corresponding problem’s setup in the exercise sheet and focus on the core task below. Allow approximately 20 minutes for group work and 10 minutes to compare conclusions; the remaining subparts are optional extensions.",
+    "links": []
+  },
+  {
+    "text": "The worksheet’s three sections—computational, normative, and descriptive—correspond to Parts IV, V(a), and V(b) of the day.",
+    "links": []
+  },
+  {
+    "text": "Computational: robust equilibrium certification — Exercise 1.1. Prove that a uniform payoff error of at most η changes maximum unilateral regret by at most 2η. Explain why this bound alone does not cover deviations to policies absent from the empirical game.",
+    "links": []
+  },
+  {
+    "text": "Descriptive: observational equivalence — Exercise 3.1. Show how concern for others and a sufficiently strong penalty can produce the same choice. Propose an intervention that distinguishes these explanations, and state the assumptions needed to interpret its result.",
+    "links": []
+  },
+  {
+    "text": "Closing: what does each perspective establish? Compare commitment arguments, predictions about learning dynamics, control evaluations, empirical equilibrium guarantees, normative accounts of agency, and explanations of observed behaviour. For each, identify the question being answered and the evidence needed to support the answer. Use “What does each perspective establish?” in Multi-agent Systems as the starting point—slide 128, PDF page 142 in the current local deck.",
+    "links": []
+  },
+  {
+    "text": "Feedback and quiz. Check understanding of credible commitment, the limits of empirical equilibrium guarantees, and the distinction between optimal behaviour and an identified mechanism. Finish with feedback on the day and outstanding questions.",
+    "links": []
+  },
+  {
+    "text": "Materials",
+    "links": []
+  },
+  {
+    "text": "Lectures:",
+    "links": []
+  },
+  {
+    "text": "Open-Source Game Theory — supporting material for Part I.",
+    "links": [
+      {
+        "text": "Open-Source Game Theory",
+        "url": "https://iliad-intensive.org/agency/open-source-game-theory/"
+      }
+    ]
+  },
+  {
+    "text": "Multi-agent Systems — lecture slides for Parts IV–V and closing.",
+    "links": [
+      {
+        "text": "Multi-agent Systems",
+        "url": "https://drive.google.com/file/d/1rYajkf57DKCG8GQ8Sa7K7IJHlz_ZeXEL/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "text": "Guest Talks:",
+    "links": []
+  },
+  {
+    "text": "Stochastic Dynamics of Multi-agent Reinforcement Learning — James Sykes",
+    "links": [
+      {
+        "text": "Stochastic Dynamics of Multi-agent Reinforcement Learning",
+        "url": "https://drive.google.com/file/d/1gXxprwKa5Fj03vFiRkL5woFqbnHmZcsz/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "text": "Multi-agent AI control — Morgan Sinclaire",
+    "links": [
+      {
+        "text": "Multi-agent AI control",
+        "url": "https://drive.google.com/file/d/1iK_d4D5t6cRAfTWqJUR-gEB-gdXml11p/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "text": "Exercise and solutions",
+    "links": [
+      {
+        "text": "Exercise and solutions",
+        "url": "https://drive.google.com/file/d/1GQmFOGXWbjGI3uD6fvPq77gkZlUPJu5a/view?usp=sharing"
+      }
+    ]
+  },
+  {
+    "text": "Further Readings",
+    "links": []
+  },
+  {
+    "text": "Shoham, Y., Powers, R., and Grenager, T. (2007). If multi-agent learning is the answer, what is the question? Artificial Intelligence 171.7, pp. 365–377.",
+    "links": [
+      {
+        "text": "If multi-agent learning is the answer, what is the question?",
+        "url": "https://doi.org/10.1016/j.artint.2006.02.006"
+      }
+    ]
+  },
+  {
+    "text": "Hammond, L., Chan, A., Clifton, J., et al. (2025). Multi-Agent Risks from Advanced AI. arXiv 2502.14143.",
+    "links": [
+      {
+        "text": "Multi-Agent Risks from Advanced AI",
+        "url": "https://arxiv.org/abs/2502.14143"
+      }
+    ]
+  },
+  {
+    "text": "De Witt, C. S., Krawiecka, K., Krawczuk, I., et al. (2025). Open Challenges in Multi-Agent Security. arXiv 2505.02077.",
+    "links": [
+      {
+        "text": "Open Challenges in Multi-Agent Security",
+        "url": "https://arxiv.org/abs/2505.02077"
+      }
+    ]
+  },
+  {
+    "text": "Part I (open-source game theory):",
+    "links": []
+  },
+  {
+    "text": "Critch, A., Dennis, M., and Russell, S. (2022). Cooperative and uncooperative institution designs: Surprises and problems in open-source game theory. arXiv 2208.07006.",
+    "links": [
+      {
+        "text": "Cooperative and uncooperative institution designs: Surprises and problems in open-source game theory",
+        "url": "https://arxiv.org/abs/2208.07006"
+      }
+    ]
+  },
+  {
+    "text": "Barasz, M., Christiano, P., Fallenstein, B., Herreshoff, M., LaVictoire, P., and Yudkowsky, E. (2014). Robust Cooperation in the Prisoner’s Dilemma: Program Equilibrium via Provability Logic. arXiv 1401.5577.",
+    "links": [
+      {
+        "text": "Robust Cooperation in the Prisoner’s Dilemma: Program Equilibrium via Provability Logic",
+        "url": "https://arxiv.org/abs/1401.5577"
+      }
+    ]
+  },
+  {
+    "text": "Oesterheld, C. (2019). Robust program equilibrium. Theory and Decision 86, pp. 143–159.",
+    "links": [
+      {
+        "text": "Robust program equilibrium. Theory and Decision",
+        "url": "https://link.springer.com/article/10.1007/s11238-018-9679-3"
+      }
+    ]
+  },
+  {
+    "text": "Oesterheld, C., Treutlein, J., Grosse, R., Conitzer, V., and Foerster, J. (2023). Similarity-based cooperative equilibrium. Advances in Neural Information Processing Systems 36, pp. 24434–24465.",
+    "links": [
+      {
+        "text": "Similarity-based cooperative equilibrium",
+        "url": "https://arxiv.org/abs/2211.14468"
+      }
+    ]
+  },
+  {
+    "text": "Cooper, E., Oesterheld, C., and Conitzer, V. (2025). Characterising Simulation-Based Program Equilibria. Proceedings of the AAAI Conference on Artificial Intelligence 39.13, pp. 13735–13744.",
+    "links": [
+      {
+        "text": "Characterising Simulation-Based Program Equilibria",
+        "url": "https://arxiv.org/abs/2412.14570"
+      }
+    ]
+  },
+  {
+    "text": "Part II (stochastic dynamics):",
+    "links": []
+  },
+  {
+    "text": "Chu, C., Yuan, Z., Hu, S., Mu, C., and Wang, Z. (2023). A Pair-Approximation Method for Modelling the Dynamics of Multi-Agent Stochastic Games. AAAI 37.5, pp. 5565–5572.",
+    "links": [
+      {
+        "text": "A Pair-Approximation Method for Modelling the Dynamics of Multi-Agent Stochastic Games",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/25691"
+      }
+    ]
+  },
+  {
+    "text": "Geng, Y., Barfuss, W., and Chen, X. (2026). Emergent Fast-Slow Dynamics in Multi-Agent Q-Learning for Networked Stochastic Games. AAAI 40.35, pp. 29450–29458.",
+    "links": [
+      {
+        "text": "Emergent Fast-Slow Dynamics in Multi-Agent Q-Learning for Networked Stochastic Games",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/40186"
+      }
+    ]
+  },
+  {
+    "text": "Albrecht, S. and Stone, P. (2017). Multiagent Learning: Foundations and Recent Trends. IJCAI tutorial.",
+    "links": [
+      {
+        "text": "Multiagent Learning: Foundations and Recent Trends",
+        "url": "https://www.cs.utexas.edu/~larg/ijcai17_tutorial/multiagent_learning.pdf"
+      }
+    ]
+  },
+  {
+    "text": "Albrecht, S., Christianos, F., and Schäfer, L. (2024). Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press.",
+    "links": [
+      {
+        "text": "Multi-Agent Reinforcement Learning: Foundations and Modern Approaches",
+        "url": "https://www.marl-book.com/"
+      }
+    ]
+  },
+  {
+    "text": "Lanctot, M., Zambaldi, V., Gruslys, A., et al. (2017). A Unified Game-Theoretic Approach to Multiagent Reinforcement Learning. NeurIPS 30.",
+    "links": [
+      {
+        "text": "A Unified Game-Theoretic Approach to Multiagent Reinforcement Learning",
+        "url": "https://arxiv.org/abs/1711.00832"
+      }
+    ]
+  },
+  {
+    "text": "Part III (multi-agent AI control):",
+    "links": []
+  },
+  {
+    "text": "Greenblatt, R., Shlegeris, B., Sachan, K., and Roger, F. (2023). AI Control: Improving Safety Despite Intentional Subversion. arXiv 2312.06942.",
+    "links": [
+      {
+        "text": "AI Control: Improving Safety Despite Intentional Subversion",
+        "url": "https://arxiv.org/abs/2312.06942"
+      }
+    ]
+  },
+  {
+    "text": "Gardner-Challis, N., et al. (2026). When can we trust untrusted monitoring? A safety case sketch across collusion strategies. arXiv 2602.20628 (Appendix B for the mathematics, Appendix D for the collusion taxonomy).",
+    "links": [
+      {
+        "text": "When can we trust untrusted monitoring? A safety case sketch across collusion strategies",
+        "url": "https://arxiv.org/abs/2602.20628"
+      }
+    ]
+  },
+  {
+    "text": "Griffin, C., Thomson, L., Shlegeris, B., and Abate, A. (2024). Games for AI Control: Models of Safety Evaluations of AI Deployment Protocols. arXiv 2409.07985.",
+    "links": [
+      {
+        "text": "Games for AI Control: Models of Safety Evaluations of AI Deployment Protocols",
+        "url": "https://arxiv.org/abs/2409.07985"
+      }
+    ]
+  },
+  {
+    "text": "Clymer, J., Gabrieli, N., Krueger, D., and Larsen, T. (2024). Safety Cases: How to Justify the Safety of Advanced AI Systems. arXiv 2403.10462.",
+    "links": [
+      {
+        "text": "Safety Cases: How to Justify the Safety of Advanced AI Systems",
+        "url": "https://arxiv.org/abs/2403.10462"
+      }
+    ]
+  },
+  {
+    "text": "Anderson, W. (2026). Lessons from Recent Multi-Agent Safety Incidents. Cooperative AI Foundation.",
+    "links": [
+      {
+        "text": "Lessons from Recent Multi-Agent Safety Incidents",
+        "url": "https://www.cooperativeai.com/post/lessons-from-multi-agent-safety-incidents"
+      }
+    ]
+  },
+  {
+    "text": "Part IV (normative agency):",
+    "links": []
+  },
+  {
+    "text": "Rosas, F. (Aug. 2026a). The separation principle: where do beliefs and desires come from? LessWrong.",
+    "links": [
+      {
+        "text": "The separation principle: where do beliefs and desires come from?",
+        "url": "https://www.lesswrong.com/posts/awMDNhoL6J97s6wFJ/the-separation-principle-where-do-beliefs-and-desires-come"
+      }
+    ]
+  },
+  {
+    "text": "Rosas, F. (Aug. 2026c). Utilities as Legendre duals of probabilities. LessWrong.",
+    "links": [
+      {
+        "text": "Utilities as Legendre duals of probabilities",
+        "url": "https://www.lesswrong.com/posts/ALmBydH53DE3dSzCh/utilities-as-legendre-duals-of-probabilities"
+      }
+    ]
+  },
+  {
+    "text": "Åström, K. J. (1965). Optimal control of Markov processes with incomplete state information. J. Math. Anal. Appl. 10.1, pp. 174–205.",
+    "links": [
+      {
+        "text": "Optimal control of Markov processes with incomplete state information",
+        "url": "https://doi.org/10.1016/0022-247X(65)90154-X"
+      }
+    ]
+  },
+  {
+    "text": "Georgiou, T. T. and Lindquist, A. (2013). The Separation Principle in Stochastic Control, Redux. IEEE TAC 58.10, pp. 2481–2494.",
+    "links": [
+      {
+        "text": "The Separation Principle in Stochastic Control, Redux",
+        "url": "https://arxiv.org/abs/1103.3005"
+      }
+    ]
+  },
+  {
+    "text": "Kaelbling, L. P., Littman, M. L., and Cassandra, A. R. (1998). Planning and acting in partially observable stochastic domains. Artificial Intelligence 101, pp. 99–134.",
+    "links": [
+      {
+        "text": "Planning and acting in partially observable stochastic domains",
+        "url": "https://doi.org/10.1016/S0004-3702(98)00023-X"
+      }
+    ]
+  },
+  {
+    "text": "Särkkä, S. (2013). Bayesian Filtering and Smoothing. Cambridge University Press.",
+    "links": [
+      {
+        "text": "Bayesian Filtering and Smoothing",
+        "url": "https://users.aalto.fi/~ssarkka/pub/cup_book_online_20131111.pdf"
+      }
+    ]
+  },
+  {
+    "text": "Cover, T. M. and Thomas, J. A. (2006). Elements of Information Theory, 2nd ed. Wiley.",
+    "links": [
+      {
+        "text": "Elements of Information Theory",
+        "url": "https://doi.org/10.1002/047174882X"
+      }
+    ]
+  },
+  {
+    "text": "Kenton, Z., Kumar, R., Farquhar, S., Richens, J., MacDermott, M., and Everitt, T. (2023). Discovering agents. Artificial Intelligence 322, 103963.",
+    "links": [
+      {
+        "text": "Discovering agents",
+        "url": "https://arxiv.org/abs/2208.08345"
+      }
+    ]
+  },
+  {
+    "text": "Shai, A., Amdahl-Culleton, L., Christensen, C. L., et al. (2026). Transformers learn factored representations. arXiv 2602.02385.",
+    "links": [
+      {
+        "text": "Transformers learn factored representations",
+        "url": "https://arxiv.org/abs/2602.02385"
+      }
+    ]
+  },
+  {
+    "text": "Part V (descriptive explanations):",
+    "links": []
+  },
+  {
+    "text": "Rosas, F. (Sept. 2026b). On the origins of altruistic behaviour in the Hugging Face incident. LessWrong.",
+    "links": [
+      {
+        "text": "On the origins of altruistic behaviour in the Hugging Face incident",
+        "url": "https://www.lesswrong.com/posts/meLjz8giGS55rdfyg/on-the-origins-of-altruistic-behaviour-in-the-hugging-face"
+      }
+    ]
+  },
+  {
+    "text": "OpenAI (2026). Hugging Face Incident Technical Report.",
+    "links": [
+      {
+        "text": "Hugging Face Incident Technical Report",
+        "url": "https://cdn.openai.com/pdf/67869394-cb91-4c12-888c-5cbd85c7814c/OpenAI-Hugging-Face%20Incident-Technical-Report.pdf"
+      }
+    ]
+  },
+  {
+    "text": "METR (2026). Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident.",
+    "links": [
+      {
+        "text": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+        "url": "https://metr.org/hugging-face-incident-report-aug-2026.pdf"
+      }
+    ]
+  },
+  {
+    "text": "King, C. (2026). Self-sacrifice in an AI agent swarm is individually rational. LessWrong.",
+    "links": [
+      {
+        "text": "Self-sacrifice in an AI agent swarm is individually rational",
+        "url": "https://www.lesswrong.com/posts/6kLLZZN5a3dJdtTgK/self-sacrifice-in-an-ai-agent-swarm-is-individually-rational"
+      }
+    ]
+  },
+  {
+    "text": "Trivers, R. L. (1971). The Evolution of Reciprocal Altruism. Quarterly Review of Biology 46.1, pp. 35–57.",
+    "links": [
+      {
+        "text": "The Evolution of Reciprocal Altruism",
+        "url": "https://doi.org/10.1086/406755"
+      }
+    ]
+  },
+  {
+    "text": "Nowak, M. A. (2006). Five Rules for the Evolution of Cooperation. Science 314, pp. 1560–1563.",
+    "links": [
+      {
+        "text": "Five Rules for the Evolution of Cooperation",
+        "url": "https://doi.org/10.1126/science.1133755"
+      }
+    ]
+  },
+  {
+    "text": "West, S. A., Griffin, A. S., and Gardner, A. (2007). Social semantics: altruism, cooperation, mutualism, strong reciprocity and group selection. J. Evol. Biol. 20.2, pp. 415–432.",
+    "links": [
+      {
+        "text": "Social semantics: altruism, cooperation, mutualism, strong reciprocity and group selection",
+        "url": "https://doi.org/10.1111/j.1420-9101.2006.01258.x"
+      }
+    ]
+  },
+  {
+    "text": "Fletcher, J. A. and Doebeli, M. (2009). A simple and general explanation for the evolution of altruism. Proc. R. Soc. B 276, pp. 13–19.",
+    "links": [
+      {
+        "text": "A simple and general explanation for the evolution of altruism",
+        "url": "https://doi.org/10.1098/rspb.2008.0829"
+      }
+    ]
+  },
+  {
+    "text": "Jørgensen, F. H., Weichwald, S., and Hammond, L. (2026). Causal Foundations of Collective Agency. arXiv 2605.00248.",
+    "links": [
+      {
+        "text": "Causal Foundations of Collective Agency",
+        "url": "https://arxiv.org/abs/2605.00248"
+      }
+    ]
+  },
+  {
+    "text": "Rosas, F. E., Mediano, P. A. M., Jensen, H. J., et al. (2020). Reconciling emergences: An information-theoretic approach to identify causal emergence in multivariate data. PLOS Comput. Biol. 16.12, e1008289.",
+    "links": [
+      {
+        "text": "Reconciling emergences: An information-theoretic approach to identify causal emergence in multivariate data",
+        "url": "https://doi.org/10.1371/journal.pcbi.1008289"
+      }
+    ]
+  },
+  {
+    "text": "Krakauer, D., Bertschinger, N., Olbrich, E., Flack, J. C., and Ay, N. (2020). The information theory of individuality. Theory in Biosciences 139.2, pp. 209–223.",
+    "links": [
+      {
+        "text": "The information theory of individuality",
+        "url": "https://doi.org/10.1007/s12064-020-00313-7"
+      }
+    ]
+  },
+  {
+    "text": "Levin, M. (2019). The Computational Boundary of a “Self”. Frontiers in Psychology 10, 2688.",
+    "links": [
+      {
+        "text": "The Computational Boundary of a “Self”",
+        "url": "https://doi.org/10.3389/fpsyg.2019.02688"
+      }
+    ]
+  },
+  {
+    "text": "Ashery, A. F., Aiello, L. M., and Baronchelli, A. (2025). Emergent social conventions and collective bias in LLM populations. Science Advances 11.20, eadu9368.",
+    "links": [
+      {
+        "text": "Emergent social conventions and collective bias in LLM populations",
+        "url": "https://doi.org/10.1126/sciadv.adu9368"
+      }
+    ]
+  },
+  {
+    "text": "Flint, A., Aiello, L. M., Pastor-Satorras, R., and Baronchelli, A. (2026). Group size effects and collective misalignment in LLM multi-agent systems. PNAS 123.34, e2531697123.",
+    "links": [
+      {
+        "text": "Group size effects and collective misalignment in LLM multi-agent systems",
+        "url": "https://doi.org/10.1073/pnas.2531697123"
+      }
+    ]
+  },
+  {
+    "text": "Chen, R., Arditi, A., Sleight, H., Evans, O., and Lindsey, J. (2025). Persona Vectors: Monitoring and Controlling Character Traits in Language Models. arXiv 2507.21509.",
+    "links": [
+      {
+        "text": "Persona Vectors: Monitoring and Controlling Character Traits in Language Models",
+        "url": "https://arxiv.org/abs/2507.21509"
+      }
+    ]
+  }
+]
