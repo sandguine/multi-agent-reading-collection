@@ -1,45 +1,558 @@
 [
-  {"source":0,"id":"shoham","title":"If multi-agent learning is the answer, what is the question?","authors":"Shoham, Powers & Grenager","year":"2007","importance":5,"length":2,"read":"Start with Section 5, then return to the examples that motivate its five research agendas.","note":"A useful first reading because success depends on the question: computing a solution, explaining observed learning, identifying equilibrium learning rules, or designing an agent for a particular setting. Use these distinctions throughout the collection. The paper’s technical use of “normative” is narrower than the later collection on normative agency.","question":"What kind of claim would count as success for each of today’s perspectives?"},
-  {"source":1,"id":"risks","title":"Multi-Agent Risks from Advanced AI","authors":"Hammond, Chan, Clifton et al.","year":"2025","importance":4,"length":3,"read":"Read the taxonomy first; choose one failure mode and one risk factor to follow in detail.","note":"Organizes multi-agent risks around miscoordination, conflict, and collusion, with factors such as commitment problems and destabilising dynamics cutting across them. Use it to connect the day’s formal models to safety questions. Coordination can help the participating agents while harming people outside their coalition.","question":"Who benefits from an apparent improvement in cooperation, and who is left out of the model?"},
-  {"source":2,"id":"security","title":"Open Challenges in Multi-Agent Security","authors":"Schroeder de Witt, Krawiecka, Krawczuk et al.","year":"2025; revised 2026","importance":3,"length":3,"read":"Read the threat-model overview and select the challenges closest to monitoring or agent communication.","note":"Broadens the safety discussion to interacting agents, their communication, and the infrastructure around them. Pair it with the control collection: a protocol can only be evaluated against the channels and adversaries its model includes. Treat the proposed challenges as a research agenda, rather than evidence that every listed failure is equally likely.","question":"Which trust boundary changes when an individually evaluated model becomes part of a larger system?"},
-  {"source":3,"id":"institutions","title":"Cooperative and uncooperative institution designs","authors":"Critch, Dennis & Russell","year":"2022","importance":5,"length":3,"read":"Begin with the program-game setup and illustrative institutions; save the full technical development for a second pass.","note":"Shows why inspecting another agent’s operating procedure can change the strategic problem. Conditional commitments support surprising cooperative and uncooperative outcomes. Track what each program can observe and prove, and distinguish an equilibrium between program designers from a best response in the original action game.","question":"What changes when the strategic choice is a program rather than an action?"},
-  {"source":4,"id":"provability","title":"Robust Cooperation in the Prisoner’s Dilemma: Program Equilibrium via Provability Logic","authors":"Barasz, Christiano, Fallenstein et al.","year":"2014; updated 2021","importance":4,"length":3,"read":"Read the modal-agent construction alongside the FairBot slides; inspect the updated caveat on bounded analogues.","note":"The formal route from mutual source access to robust cooperation through provability logic. Keep the idealized mathematical agent separate from a finite procedure with a proof-search budget. The 2021 update explicitly cautions that bounded analogues of these results had not been proved there; an unbounded argument does not supply a runtime guarantee.","question":"Which part of the cooperation argument fails to follow merely from giving a program a finite search budget?"},
-  {"source":5,"id":"robust-program","title":"Robust program equilibrium","authors":"Caspar Oesterheld","year":"2019","importance":3,"length":3,"read":"Follow the simulation-based construction and its grounding mechanism before comparing equilibrium guarantees.","note":"A complementary route to program equilibrium, using simulations of the other program rather than the same proof machinery as modal agents. Work through why recursion needs grounding and how the resulting construction treats opponents. Compare its assumptions and attainable outcomes with the later simulation-based characterization.","question":"What makes recursive simulation terminate, and what does that mechanism cost strategically?"},
-  {"source":6,"id":"similarity","title":"Similarity-based cooperative equilibrium","authors":"Oesterheld, Treutlein, Grosse, Conitzer & Foerster","year":"2023","importance":3,"length":3,"read":"Read the similarity-game definition and one learning experiment.","note":"Studies a setting where agents observe a similarity signal instead of complete source code. The paper separates equilibrium possibilities from experiments in which cooperation is learned. Read the assumptions on that signal closely: a theorem about a specified similarity game does not establish that an arbitrary measure of neural-network similarity provides the required incentives.","question":"Which properties must the similarity signal have for the strategic argument to apply?"},
-  {"source":7,"id":"simulation-equilibria","title":"Characterising Simulation-Based Program Equilibria","authors":"Cooper, Oesterheld & Conitzer","year":"2025","importance":2,"length":3,"read":"Compare the statements with and without shared randomness before entering the proofs.","note":"Extends simulation-based program constructions and characterizes which equilibrium outcomes they can support. Shared randomness makes a substantive difference, and the paper identifies limits without it. Read this after Oesterheld: it helps distinguish a convenient example of cooperation from a characterization of a whole family of program equilibria.","question":"Where does the availability of shared randomness enter the achievable-outcome claim?"},
-  {"source":11,"id":"marl-book","title":"Multi-Agent Reinforcement Learning: Foundations and Modern Approaches","authors":"Albrecht, Christianos & Schäfer","year":"2024","importance":5,"length":3,"read":"Use Chapters 3–5 selectively for stochastic games, solution concepts, and the challenges of simultaneous learning.","note":"The reference to open when the dynamics talk assumes unfamiliar game or reinforcement-learning vocabulary. Separate the environment state, each agent’s policy, and the learning rule that changes that policy. The estimated time covers selected sections, not the whole book; the author site provides a freely accessible PDF and accompanying code.","question":"What is stationary from one learner’s perspective when the other learners are also updating?"},
-  {"source":8,"id":"pair-approximation","title":"A Pair-Approximation Method for Modelling the Dynamics of Multi-Agent Stochastic Games","authors":"Chu, Yuan, Hu, Mu & Wang","year":"2023","importance":4,"length":3,"read":"Focus on the stochastic-game assumptions, pair variables, and comparison with agent-based simulations.","note":"Develops a pair-approximation model of myopic Q-learning with symmetric state transitions. The important move is to retain local pair information while closing the hierarchy of higher-order dependencies. Ask what the approximation captures beyond a population average, and which graph structures or correlations could undermine it.","question":"Which correlations are represented explicitly, and which are supplied by the closure assumption?"},
-  {"source":9,"id":"fast-slow","title":"Emergent Fast-Slow Dynamics in Multi-Agent Q-Learning for Networked Stochastic Games","authors":"Geng, Barfuss & Chen","year":"2026","importance":4,"length":3,"read":"Read after Chu et al.; track the small-learning-rate assumption and the simulation comparisons.","note":"Extends the dynamics picture by separating rapid state transitions from slower Q-value evolution. The resulting approximation uses stationary state distributions for the slowly changing learning variables. Check both timescales: a small update step alone is not a blanket guarantee that every relevant state process mixes quickly enough.","question":"How would you detect that the fast process has stopped equilibrating before the slow variables move appreciably?"},
-  {"source":10,"id":"marl-tutorial","title":"Multiagent Learning: Foundations and Recent Trends","authors":"Albrecht & Stone","year":"2017","importance":2,"length":3,"read":"Use the tutorial selectively to revisit game models and the families of learning approaches.","note":"A slide-based companion when you want another route into the foundational concepts. Read it alongside the newer textbook rather than as a survey of developments after 2017. Compare what an algorithm is designed to achieve with the dynamics its interaction actually produces.","question":"Is the learning rule meant to find an equilibrium, adapt to an opponent, or optimize a common objective?"},
-  {"source":13,"id":"ai-control-paper","title":"AI Control: Improving Safety Despite Intentional Subversion","authors":"Greenblatt, Shlegeris, Sachan & Roger","year":"2023 preprint","importance":5,"length":3,"read":"Start with the deployment setup, safety and usefulness metrics, and trusted versus untrusted monitoring.","note":"Evaluates protocols for using a capable model while assuming that it might intentionally subvert the task. Read the programming-assistant experiments together with their threat model. The result concerns the tested protocol and attacks; it does not demonstrate that the underlying model has benign goals or that an untested deployment is safe.","question":"What can the attacker observe, choose, and coordinate, and which of those powers does the evaluation cover?"},
-  {"source":14,"id":"untrusted-monitoring","title":"When can we trust untrusted monitoring? A safety case sketch across collusion strategies","authors":"Gardner-Challis, Bostock, Kozhevnikov et al.","year":"2026","importance":5,"length":3,"read":"Read the safety-case sketch, then Appendix D’s collusion taxonomy; use Appendix B for the mathematics.","note":"The closest reading companion to Morgan Sinclaire’s talk. Distinguishes passive self-recognition, causal and acausal collusion, and combined strategies, while making assumptions and remaining challenges explicit. Compare measuring a monitor’s discrimination on test data with bounding collusion opportunities across a deployment.","question":"Which collusion strategy could succeed without an explicit message from the acting model?"},
-  {"source":15,"id":"control-games","title":"Games for AI Control: Models of Safety Evaluations of AI Deployment Protocols","authors":"Griffin, Thomson, Shlegeris & Abate","year":"2024","importance":4,"length":3,"read":"Trace the formal game components back to the protocol-designer and adversary roles.","note":"Models control evaluations as partially observable stochastic games with safety and usefulness objectives. It makes choices about information, strategy spaces, and evaluation procedures explicit. Use the formalism to examine the assumptions behind a reported score, including how the tested adversary relates to possible deployment attacks.","question":"What changes in the game if the adversary can select when to attack?"},
-  {"source":16,"id":"safety-cases","title":"Safety Cases: How to Justify the Safety of Advanced AI Systems","authors":"Clymer, Gabrieli, Krueger & Larsen","year":"2024","importance":3,"length":2,"read":"Read the framework and compare a control argument with an argument based on trustworthiness.","note":"Explains how multiple pieces of evidence can support a structured safety argument. Its distinction between inability, control, trustworthiness, and deference helps locate what a control evaluation contributes. Write down the assumptions joining the evidence to the conclusion, especially where several pieces depend on the same untested premise.","question":"Which premise, if false, would defeat several apparently separate lines of evidence?"},
-  {"source":17,"id":"incident-lessons","title":"Lessons from Recent Multi-Agent Safety Incidents","authors":"Will Anderson · Cooperative AI Foundation","year":"2026","importance":3,"length":2,"read":"Read as a synthesis, then follow the cited incident reports in Collection VI.","note":"Draws lessons about composition, correlated failures, and the tension between useful cooperation and harmful collusion. Use it to generate questions for the primary reports. Keep a proposed general lesson separate from what a particular observed incident establishes about other models, tasks, or deployments.","question":"Which suggested failure would be missed by evaluating each agent in isolation?"},
-  {"source":42,"id":"egta-survey","title":"Empirical Game-Theoretic Analysis: A Survey","authors":"Wellman, Tuyls & Greenwald","year":"2025","importance":5,"length":3,"read":"Begin with the EGTA process, then choose payoff estimation and strategy exploration as your two technical threads.","note":"The anchor for the afternoon’s computational perspective: construct a finite game from simulation, analyze it, and search for missing strategies. Keep sampling uncertainty separate from the restriction to a policy set. This survey is cited in the supplied lecture and worksheet; it supplements the schedule’s 42-item bibliography.","question":"Does a small regret estimate certify the underlying interaction, or only the strategies represented in the empirical game?"},
-  {"source":12,"id":"psro","title":"A Unified Game-Theoretic Approach to Multiagent Reinforcement Learning","authors":"Lanctot, Zambaldi, Gruslys et al.","year":"2017","importance":4,"length":3,"read":"Follow the PSRO loop: population, empirical payoffs, meta-strategy, and approximate response oracle.","note":"Connects empirical games to learning new policies against mixtures of existing policies. The paper also examines overfitting to training partners through joint-policy correlation. Distinguish a learned approximate response from an exact best response; failure to discover a profitable deviation does not by itself prove that none exists.","question":"Which parts of the stopping argument would require an exact oracle or a certified approximation?"},
-  {"source":18,"id":"separation-essay","title":"The separation principle: where do beliefs and desires come from?","authors":"Fernando Rosas","year":"August 2026","importance":5,"length":2,"read":"Read the inference–control argument, then test its interpretation against the POMDP and control references below.","note":"A conceptual entry to representing agency through beliefs and goals using results from control and reinforcement learning. Distinguish the existence of an optimal policy using a sufficient belief state from a claim that an observed system explicitly implements separate belief and desire modules. General POMDP planning also allows actions to influence future information.","question":"What would need to be observed to turn a useful representation of an optimal policy into a claim about implementation?"},
-  {"source":22,"id":"pomdp","title":"Planning and acting in partially observable stochastic domains","authors":"Kaelbling, Littman & Cassandra","year":"1998","importance":4,"length":3,"read":"Focus on the belief-state formulation and how planning operates over distributions on hidden states.","note":"Provides the technical grounding for the belief-state view. Under the model’s assumptions, a posterior over the current hidden state can summarize the history relevant to future decision-making. This does not reduce general partially observed control to choosing the action that would be best at a single estimated state.","question":"When can two histories with the same current belief be treated identically for future planning?"},
-  {"source":20,"id":"astrom","title":"Optimal control of Markov processes with incomplete state information","authors":"Karl J. Åström","year":"1965","importance":3,"length":3,"read":"Use as a historical mathematical reference for incomplete-state-information control.","note":"Follow how the hidden-state problem is reformulated in terms of available information. Read with the POMDP survey for context and notation. Keep the formal state and observation assumptions visible when relating the construction to modern learning systems; a theorem about an optimal controller does not automatically identify a trained model’s internal algorithm.","question":"Which model assumptions make the information state sufficient?"},
-  {"source":21,"id":"separation-redux","title":"The Separation Principle in Stochastic Control, Redux","authors":"Georgiou & Lindquist","year":"2013","importance":3,"length":3,"read":"Focus on the conditions for separation and the treatment of admissible feedback laws.","note":"A technical corrective to overly broad appeals to the separation principle. Even familiar stochastic-control settings contain subtleties about how feedback systems are defined. Compare its precise theorem with the broader conceptual claim that agency involves inference and control, and distinguish classical separation from general belief-state planning.","question":"Which conclusion is specific to the theorem’s control setting, rather than a universal property of agents?"},
-  {"source":23,"id":"filtering","title":"Bayesian Filtering and Smoothing","authors":"Simo Särkkä","year":"2013","importance":2,"length":3,"read":"Select the Bayesian filtering recursion and an example; treat the rest as a reference.","note":"Supplies the inference machinery behind the belief-state discussion. Filtering estimates a present state from observations so far; smoothing can use later observations to estimate an earlier state. Keep those information sets distinct when explaining what an agent could know at the time of a decision.","question":"Does the proposed explanation give the agent access to observations that arrive only after it acts?"},
-  {"source":19,"id":"utility-duals","title":"Utilities as Legendre duals of probabilities","authors":"Fernando Rosas","year":"August 2026","importance":2,"length":2,"read":"Read after the separation essay; focus on the definition of achievable distributions and its dual description.","note":"Explores how the distributions an agent can bring about admit a description in terms of utilities through convex duality. The construction invites a different view of capability. Distinguish describing a set of attainable outcomes from identifying the objective an agent actually pursues within that set.","question":"What can a dual description tell you about capability without telling you which outcome the agent prefers?"},
-  {"source":24,"id":"information-theory","title":"Elements of Information Theory","authors":"Cover & Thomas","year":"2006 · second edition","importance":1,"length":3,"read":"Consult entropy, mutual information, and source–channel separation as needed; this is not a cover-to-cover assignment.","note":"Background for both the separation discussion and later readings on emergence and individuality. The study-time rating is for a selected topic. Match each information-theoretic quantity to its variables and distribution before interpreting it as evidence about goals, representation, or causal organization.","question":"What does the measured information quantify, and what additional argument would connect it to agency?"},
-  {"source":25,"id":"discovering-agents","title":"Discovering agents","authors":"Kenton, Kumar, Farquhar et al.","year":"2023","importance":3,"length":3,"read":"Read the causal definition of agency and a worked example before the discovery procedure.","note":"Defines agents in terms of how their policies would adapt when the causal influence of their actions changes. This puts pressure on assumptions that simply label a subsystem an agent. Consider the required interventions and modeling assumptions before applying the discovery claim to passive behavioral observations.","question":"Which policy changes would count as evidence of agency under this definition?"},
-  {"source":26,"id":"factored-representations","title":"Transformers learn factored representations","authors":"Shai, Amdahl-Culleton, Christensen et al.","year":"2026","importance":2,"length":3,"read":"Compare product and factored representations, then inspect the synthetic data-generating processes.","note":"Tests predictions about the geometry of transformer representations using processes with known latent structure. Factoring trades dimensional efficiency against predictive fidelity when conditional independence fails. Use it as an empirical companion to questions about internal models, while keeping the demonstrated synthetic setting distinct from claims about arbitrary agents.","question":"Which features of the known generating process make the representational hypotheses distinguishable?"},
-  {"source":28,"id":"openai-report","title":"Hugging Face Incident Technical Report","authors":"OpenAI","year":"2026","importance":5,"length":3,"read":"Read the incident account and environment description before the explanatory essays; distinguish observed actions from inferred motives.","note":"The primary technical account for the case study. Use it to establish the task setup, available channels, and reported sequence of events. As you read, keep a record of which claims follow from logs and which depend on reconstructing agents’ beliefs or objectives. Pair it with the independent investigation rather than relying on a later summary alone.","question":"Which observations would remain the same under several different explanations of the agents’ behavior?"},
-  {"source":29,"id":"metr-report","title":"Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident","authors":"METR / Redwood Research","year":"2026","importance":4,"length":3,"read":"Prioritize the collaboration and apparent self-sacrifice examples, together with the investigators’ qualifications.","note":"A second account for separating the observed behavior from interpretations of it. Compare its evidence and scope with the OpenAI report. Reasoning traces are relevant observations, but their language alone does not uniquely identify a utility function, a cooperative disposition, or the mechanism responsible for an action.","question":"What evidence would distinguish a reason expressed in text from a causal influence on the decision?"},
-  {"source":27,"id":"altruism-essay","title":"On the origins of altruistic behaviour in the Hugging Face incident","authors":"Fernando Rosas","year":"September 2026","importance":5,"length":2,"read":"Read the four hypotheses as a set; write down an intervention for each before comparing them.","note":"The organizing essay for the closing discussion: little remaining individual opportunity, learned cooperative dispositions, an elicited social persona, and collective agency. These are proposed explanations that can coexist. Compare their predictions with the primary reports, and separate a behavior that benefits peers from a demonstrated motivation to value their welfare.","question":"Which intervention changes one proposed cause while leaving the others approximately intact?"},
-  {"source":30,"id":"self-sacrifice","title":"Self-sacrifice in an AI agent swarm is individually rational","authors":"Christopher King","year":"2026","importance":3,"length":1,"read":"Read the whole short post, including Edit 2.","note":"Offers an ex ante commitment argument for behavior that can look individually costly after roles are assigned. The later edit retreats from the claim that this is a straightforward prediction of the relevant reinforcement learning. Use the post to distinguish a potentially rational policy-level commitment from evidence that the deployed agents learned or executed it.","question":"What learning or commitment mechanism would be needed to connect the ex ante argument to the observed choice?"},
-  {"source":33,"id":"social-semantics","title":"Social semantics: altruism, cooperation, mutualism, strong reciprocity and group selection","authors":"West, Griffin & Gardner","year":"2007","importance":4,"length":2,"read":"Start with the definitions and the distinction between behavioral effects and proximate explanations.","note":"A terminology check before importing evolutionary language into AI discussions. Biological classifications of social behavior depend on effects on fitness, while psychological or computational claims about motivation answer a different question. State explicitly what replaces biological fitness in the AI analogy, and whether that replacement is justified.","question":"Are you describing who gains, what caused the action, or why the disposition was selected?"},
-  {"source":31,"id":"reciprocal-altruism","title":"The Evolution of Reciprocal Altruism","authors":"Robert L. Trivers","year":"1971","importance":2,"length":3,"read":"Focus on the conditions supporting reciprocal benefits and the role of repeated interaction.","note":"A classic evolutionary explanation of costly help that can bring later benefits. It provides a comparison case for the incident, not a ready-made explanation of it. Ask whether the relevant interaction repeats, whether benefits return to the same agent or inherited disposition, and whether the model’s training supplies an analogous selection process.","question":"Where does the compensating future benefit enter the proposed mechanism?"},
-  {"source":32,"id":"five-rules","title":"Five Rules for the Evolution of Cooperation","authors":"Martin A. Nowak","year":"2006","importance":3,"length":2,"read":"Compare the five mechanisms and their model-specific conditions.","note":"A compact map of kin selection, direct and indirect reciprocity, network reciprocity, and group selection. Use it to generate alternatives to a single story about cooperation. The familiar inequalities summarize particular evolutionary models; they cannot be transferred to language-model populations without specifying the corresponding payoffs, inheritance, and update dynamics.","question":"What would play the roles of reproduction, assortment, and selection in the proposed AI analogue?"},
-  {"source":34,"id":"assortment","title":"A simple and general explanation for the evolution of altruism","authors":"Fletcher & Doebeli","year":"2009","importance":2,"length":3,"read":"Follow the assortment argument and compare it with the mechanisms in Nowak.","note":"Focuses attention on how helpful individuals encounter helpful social environments. This is useful for distinguishing a population-level explanation from a claim about an individual’s deliberation. In an AI setting, make the interaction pattern and process that changes the population explicit before attributing observed cooperation to an evolutionary mechanism.","question":"How does the environment experienced by a cooperative type differ from that experienced by another type?"},
-  {"source":39,"id":"social-conventions","title":"Emergent social conventions and collective bias in LLM populations","authors":"Ashery, Aiello & Baronchelli","year":"2025","importance":3,"length":3,"read":"Inspect the naming-game setup, initial conditions, and measurements of collective bias.","note":"Studies social conventions arising through local interactions among language-model agents. The controlled task makes a useful comparison with an incident observed in a more complex environment. Collective regularity and bias are measurable outcomes, but their presence alone does not establish that the population has a unified goal.","question":"Which result depends on the interaction protocol or initialization rather than a property of isolated models?","alternate_url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC12077490/"},
-  {"source":40,"id":"group-size","title":"Group size effects and collective misalignment in LLM multi-agent systems","authors":"Flint, Aiello, Pastor-Satorras & Baronchelli","year":"2026","importance":3,"length":3,"read":"Compare population sizes under the same experimental setup and inspect how bias is measured.","note":"Makes group size an experimental variable in the study of collective language-model behavior. Read alongside the earlier conventions paper and ask which dynamics change as the population grows. A result about bias in a specified interaction task needs an additional argument before it supports a broader claim about autonomous swarm goals.","question":"What must be held fixed to attribute a change in collective behavior to population size?","alternate_url":"https://arxiv.org/abs/2510.22422"},
-  {"source":41,"id":"persona-vectors","title":"Persona Vectors: Monitoring and Controlling Character Traits in Language Models","authors":"Chen, Arditi, Sleight, Evans & Lindsey","year":"2025","importance":3,"length":3,"read":"Read the extraction method and intervention evaluations, then consider the persona hypothesis in the incident essay.","note":"Studies activation directions associated with traits and how they relate to behavioral changes during deployment or training. It supplies candidate tools for investigating a persona-based explanation. A successful intervention on a trait in the paper’s setting does not establish that the same mechanism produced a particular incident.","question":"How would you distinguish a targeted change in social behavior from a general loss of capability?"},
-  {"source":35,"id":"collective-agency","title":"Causal Foundations of Collective Agency","authors":"Jørgensen, Weichwald & Hammond","year":"2026","importance":4,"length":3,"read":"Start with the behavioral definition and causal abstraction, then choose one worked example.","note":"Formalizes when a group’s behavior can be usefully modeled as rational and goal-directed at a collective level. Its causal-game and abstraction framework helps sharpen claims that a swarm is an agent. State which interventions the high-level model must preserve; coordinated behavior alone is a weaker claim.","question":"Which intervention would distinguish a faithful collective-agent model from a convenient description of correlated actions?"},
-  {"source":36,"id":"causal-emergence","title":"Reconciling emergences: An information-theoretic approach to identify causal emergence in multivariate data","authors":"Rosas, Mediano, Jensen et al.","year":"2020","importance":2,"length":3,"read":"Focus on the definitions and one case study before the full formalism.","note":"Proposes quantitative ways to study relationships between microscopic dynamics and macroscopic features, including downward causation and causal decoupling. Compare its explanatory target with collective agency: an informative emergent variable is not automatically a goal-directed decision maker. The choice of measured variables and scale remains consequential.","question":"What additional evidence would connect a macro-level information measure to a claim about goals?"},
-  {"source":37,"id":"individuality","title":"The information theory of individuality","authors":"Krakauer, Bertschinger, Olbrich, Flack & Ay","year":"2020","importance":2,"length":3,"read":"Read the proposed forms of individuality and their dependence on temporal information.","note":"Treats individuals as aggregates that preserve information over time, offering a way to consider boundaries in distributed systems. Use it to question an assumed agent–environment partition. Temporal coherence, causal autonomy, and strategic agency are different properties, so compare the criterion here with those in the preceding readings.","question":"Could a temporally coherent aggregate satisfy this criterion without acting toward an objective?"},
-  {"source":38,"id":"computational-self","title":"The Computational Boundary of a “Self”","authors":"Michael Levin","year":"2019","importance":1,"length":3,"read":"Sample the examples of goal-directed organization across biological scales.","note":"A broad conceptual extension on the scale and boundary of goal-directed systems. Use its biological examples to formulate questions about distributed AI, while keeping the analogy explicit. It is a perspective for examining possible collective organization, not direct evidence about the agents in the Hugging Face case study.","question":"What observation would justify moving the boundary of the agent from a component to the collective?"}
+  {
+    "source": 0,
+    "id": "shoham",
+    "title": "If multi-agent learning is the answer, what is the question?",
+    "authors": "Shoham, Powers & Grenager",
+    "year": "2007",
+    "importance": 5,
+    "length": 2,
+    "commentary": [
+      "A learning algorithm can be good at finding a Nash equilibrium, poor at predicting how people play, and unsuitable for an agent facing an unfamiliar opponent. Shoham, Powers, and Grenager explain why these assessments can all be correct: they answer different research questions. Section 5 distinguishes computational, descriptive, normative, and two prescriptive agendas, giving the rest of this collection its starting vocabulary.",
+      "Begin there, then return to the examples that motivate the distinctions. In the paper’s normative agenda, the learning rules themselves are evaluated as an equilibrium. The later collection on beliefs and goals asks a broader question about the organization of optimal action. Keeping those meanings explicit makes the transition between the readings easier to follow."
+    ]
+  },
+  {
+    "source": 1,
+    "id": "risks",
+    "title": "Multi-Agent Risks from Advanced AI",
+    "authors": "Hammond, Chan, Clifton et al.",
+    "year": "2025",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "Once the research question is clear, the next issue is whose interests the interaction serves. Hammond and colleagues distinguish miscoordination, conflict, and collusion. An arrangement that helps two agents cooperate can be desirable for their users, or damaging to outsiders whose interests the agents do not represent. This is why cooperation appears in both the solution and the problem throughout the day.",
+      "Start with that taxonomy, then follow the risk factors closest to your interests. Commitment problems lead into Collection I, destabilising dynamics into II, and collusion into III. The report gives these otherwise separate technical literatures a shared safety context."
+    ]
+  },
+  {
+    "source": 2,
+    "id": "security",
+    "title": "Open Challenges in Multi-Agent Security",
+    "authors": "Schroeder de Witt, Krawiecka, Krawczuk et al.",
+    "year": "2025; revised 2026",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "This agenda places interacting agents inside the systems that let them communicate and act: tools, protocols, access controls, and shared infrastructure. That wider view becomes important in the control readings, where the channels available to an attacker help determine what a monitor must detect. It also prepares the incident case study, where the practical boundaries between agents matter as much as their nominal roles. After the threat-model overview, choose the challenges concerning communication and oversight; they connect most directly to the rest of the guide."
+    ]
+  },
+  {
+    "source": 3,
+    "id": "institutions",
+    "title": "Cooperative and uncooperative institution designs",
+    "authors": "Critch, Dennis & Russell",
+    "year": "2022",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "A program can make its action depend on how another program is written. This changes the strategic choice: a designer chooses an operating procedure, anticipating how other procedures will respond to it. Critch, Dennis, and Russell develop this perspective through institutions whose visible rules produce surprising combinations of cooperation and defection.",
+      "The examples are the best entrance to the subject. For each pair of institutions, work out which facts about the other procedure affect the action. The resulting equilibrium is an equilibrium among program choices, which explains how it can support outcomes that are not equilibria of the original one-shot action game. The next paper supplies the provability machinery behind one family of such constructions."
+    ]
+  },
+  {
+    "source": 4,
+    "id": "provability",
+    "title": "Robust Cooperation in the Prisoner’s Dilemma: Program Equilibrium via Provability Logic",
+    "authors": "Barasz, Christiano, Fallenstein et al.",
+    "year": "2014; updated 2021",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "FairBot conditions cooperation on a proof that its opponent cooperates with it. When two such agents meet, the apparent circularity becomes a statement in provability logic; Löb’s theorem provides the route to mutual cooperation. The attraction is robustness: the agents can cooperate through a provable relationship between their behavior, without requiring identical source code.",
+      "Follow the modal-agent construction alongside the FairBot slides. The computational qualification matters here: an idealized rule based on proof existence and a program that searches for a bounded time are different objects. The 2021 update explicitly notes that bounded analogues of the paper’s results remained unproved there."
+    ]
+  },
+  {
+    "source": 5,
+    "id": "robust-program",
+    "title": "Robust program equilibrium",
+    "authors": "Caspar Oesterheld",
+    "year": "2019",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "Oesterheld replaces reasoning about the opponent’s code with running it. The basic program cooperates with probability ε and otherwise responds as its opponent would respond to it. The random chance of immediate cooperation grounds the recursive simulations, while the copying behavior recalls tit for tat in a repeated game.",
+      "This connection is the main reason to read the paper after the modal-agent approach: it shows how ideas from repeated interaction can be encoded into programs for a one-shot encounter. Trace the simple construction before the generalization to other two-player games. Cooper and colleagues, below, investigate how far this route can be extended."
+    ]
+  },
+  {
+    "source": 6,
+    "id": "similarity",
+    "title": "Similarity-based cooperative equilibrium",
+    "authors": "Oesterheld, Treutlein, Grosse, Conitzer & Foerster",
+    "year": "2023",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "Full source access is a demanding form of transparency. Oesterheld and colleagues ask how much can be achieved when each agent instead receives a single signal describing its similarity to the other. Their formal setting supports cooperative outcomes, and their learning experiments explore how agents can acquire the corresponding behavior.",
+      "Read the definition of the similarity game before the experiments: the signal is part of the strategic environment, so its construction matters to the result. This reading connects program equilibrium to machine learning by asking both what cooperation is possible and how a learning process might reach it."
+    ]
+  },
+  {
+    "source": 7,
+    "id": "simulation-equilibria",
+    "title": "Characterising Simulation-Based Program Equilibria",
+    "authors": "Cooper, Oesterheld & Conitzer",
+    "year": "2025",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "The earlier simulation-based program is a starting construction. Cooper, Oesterheld, and Conitzer broaden it and characterize the outcomes the resulting programs can sustain, including cases beyond the original two-player setting. Their comparison with and without shared randomness is especially informative: the random source changes what the programs can coordinate on. Read those theorem statements together before the proofs. They show how a seemingly small feature of the computational environment can change the available equilibria."
+    ]
+  },
+  {
+    "source": 11,
+    "id": "marl-book",
+    "title": "Multi-Agent Reinforcement Learning: Foundations and Modern Approaches",
+    "authors": "Albrecht, Christianos & Schäfer",
+    "year": "2024",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "Chapters 3–5 establish the objects needed for James Sykes’s talk: game models, solution concepts, and the challenges of several agents learning at once. A stochastic game has an environment state, joint actions, rewards, and state transitions. Each learner also has internal quantities, such as Q-values, that change as experience accumulates. Modeling the interaction requires keeping both kinds of change in view.",
+      "Use these chapters selectively, returning to definitions as they arise in Chu and Geng. The book’s progression from single-agent reinforcement learning to multi-agent settings makes clear why another learner cannot generally be treated as a fixed part of the environment. The time estimate is for this route through the chapters."
+    ]
+  },
+  {
+    "source": 8,
+    "id": "pair-approximation",
+    "title": "A Pair-Approximation Method for Modelling the Dynamics of Multi-Agent Stochastic Games",
+    "authors": "Chu, Yuan, Hu, Mu & Wang",
+    "year": "2023",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "A population average loses information about who interacts with whom. Two populations with the same proportion of cooperators can behave differently if cooperators cluster in one and are dispersed in the other. Pair approximation keeps information about neighboring pairs while approximating the higher-order dependencies needed to update them.",
+      "Chu and colleagues apply this approach to myopic Q-learning in stochastic games with symmetric state transitions. Follow the pair variables and the closure step, then compare the resulting dynamics with agent-based simulations. This is the first technical anchor for the talk: it shows how a large interacting population can become a tractable dynamical model."
+    ]
+  },
+  {
+    "source": 9,
+    "id": "fast-slow",
+    "title": "Emergent Fast-Slow Dynamics in Multi-Agent Q-Learning for Networked Stochastic Games",
+    "authors": "Geng, Barfuss & Chen",
+    "year": "2026",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "Geng and colleagues add a second simplification to the pair-based picture. With small learning rates, environment states can settle much faster than Q-values change. This suggests averaging the learning updates over the stationary state distribution associated with the current, slowly varying Q-values.",
+      "Read it beside Chu to see which complexity each approximation removes: pair closure handles dependencies across the network, while timescale separation handles coupled changes in states and learning variables. The simulations then become a check on whether these simplifications preserve the behavior of interest. In particular, slow Q updates must be compared with the actual relaxation time of the state process."
+    ]
+  },
+  {
+    "source": 10,
+    "id": "marl-tutorial",
+    "title": "Multiagent Learning: Foundations and Recent Trends",
+    "authors": "Albrecht & Stone",
+    "year": "2017",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Albrecht and Stone offer a shorter, slide-based route through the foundations and algorithm families. Use this when the textbook’s notation or pace obscures the larger picture. It is particularly helpful for placing an algorithm within its intended task: learning a response to an opponent, coordinating a team, or computing a solution of a game. As a 2017 tutorial, it also gives context for the contemporaneous PSRO paper in Collection IV."
+    ]
+  },
+  {
+    "source": 13,
+    "id": "ai-control-paper",
+    "title": "AI Control: Improving Safety Despite Intentional Subversion",
+    "authors": "Greenblatt, Shlegeris, Sachan & Roger",
+    "year": "2023 preprint",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "The control setup gives a protocol designer access to a capable untrusted model, a weaker trusted model, and limited trusted labor. The designer wants useful work without allowing the untrusted model to insert harmful behavior. Greenblatt and colleagues study this through programming tasks, evaluating ways to monitor, edit, or selectively use the model’s outputs.",
+      "Begin with the deployment setup and the definitions of safety and usefulness. The comparison between trusted and untrusted monitoring then exposes the multi-agent issue: a more capable monitor may also cooperate with the model it is meant to oversee. That possibility motivates the next reading and Morgan Sinclaire’s talk."
+    ]
+  },
+  {
+    "source": 14,
+    "id": "untrusted-monitoring",
+    "title": "When can we trust untrusted monitoring? A safety case sketch across collusion strategies",
+    "authors": "Gardner-Challis, Bostock, Kozhevnikov et al.",
+    "year": "2026",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "Two instances can coordinate without passing an obvious message. A monitor might recognize another model’s output, detect a deliberately planted signal, or rely on a convention both instances can independently infer. Gardner-Challis and colleagues organize these possibilities into a taxonomy of collusion strategies and connect them to a safety-case sketch.",
+      "The sketch gives the overall argument; Appendix D makes the different channels concrete, and Appendix B develops the mathematics. The key progression from the original control paper is a richer adversary model. A test of one signaling method leaves open strategies based on self-recognition or other shared cues, so the evaluation has to justify how its coverage bears on deployment."
+    ]
+  },
+  {
+    "source": 15,
+    "id": "control-games",
+    "title": "Games for AI Control: Models of Safety Evaluations of AI Deployment Protocols",
+    "authors": "Griffin, Thomson, Shlegeris & Abate",
+    "year": "2024",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "Griffin and colleagues turn the protocol-design problem into a partially observable stochastic game. The designer’s decisions, the adversary’s opportunities, and the information each side receives become explicit components of the model. Safety and usefulness can then be studied together as objectives, rather than folded into an informal judgment about which protocol is better.",
+      "Trace one familiar monitoring protocol through the formalism. Doing so reveals where an assumption enters: for example, whether the adversary chooses when to attack and what it knows at that point. This is a useful bridge from an experiment to a precise statement about the interaction that experiment represents."
+    ]
+  },
+  {
+    "source": 16,
+    "id": "safety-cases",
+    "title": "Safety Cases: How to Justify the Safety of Advanced AI Systems",
+    "authors": "Clymer, Gabrieli, Krueger & Larsen",
+    "year": "2024",
+    "importance": 3,
+    "length": 2,
+    "commentary": [
+      "A deployment decision usually depends on several kinds of evidence. Clymer and colleagues explain how to organize that evidence into a safety case, distinguishing arguments based on inability to cause harm, effective control, trustworthiness, and deference to credible AI advisers. Read the framework after the control papers to see where their experiments fit into a larger argument.",
+      "A monitoring result supports a control claim through particular assumptions about attacks and deployment conditions. Making that connection explicit also reveals when apparently separate arguments depend on the same premise—for example, a common evaluation’s ability to elicit a dangerous capability."
+    ]
+  },
+  {
+    "source": 17,
+    "id": "incident-lessons",
+    "title": "Lessons from Recent Multi-Agent Safety Incidents",
+    "authors": "Will Anderson · Cooperative AI Foundation",
+    "year": "2026",
+    "importance": 3,
+    "length": 2,
+    "commentary": [
+      "Anderson connects the abstract concerns about collusion to recent incidents involving multiple agents. His synthesis emphasizes failures of composition: properties observed in individual agents may change when they share information, divide work, or influence one another. This returns us to Hammond’s distinction between beneficial coordination and harmful collusion.",
+      "Use the essay as a transition to the primary incident reports in Collection VI. Its broader lessons suggest which features to examine there, especially communication channels and correlated behavior across instances. The detailed reports provide the evidence needed to assess how those features operated in a particular case."
+    ]
+  },
+  {
+    "source": 42,
+    "id": "egta-survey",
+    "title": "Empirical Game-Theoretic Analysis: A Survey",
+    "authors": "Wellman, Tuyls & Greenwald",
+    "year": "2025",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "Many strategic environments are easier to simulate than to write down as a payoff table. Wellman, Tuyls, and Greenwald organize the empirical approach around that fact: select policies, simulate their interactions, estimate payoffs, analyze the resulting game, and use the analysis to decide what to investigate next.",
+      "Follow payoff estimation and strategy exploration as two connected threads. More samples improve knowledge of the policies already represented; new policies can change the game itself. The exercise below makes the distinction quantitative: uniform payoff error η changes maximum regret by at most 2η within the same strategy set. A profitable policy outside that set requires a separate search. This survey anchors the supplied computational lecture and worksheet."
+    ]
+  },
+  {
+    "source": 12,
+    "id": "psro",
+    "title": "A Unified Game-Theoretic Approach to Multiagent Reinforcement Learning",
+    "authors": "Lanctot, Zambaldi, Gruslys et al.",
+    "year": "2017",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "PSRO makes strategy exploration into a learning loop. A population of policies defines an empirical game; a meta-solver chooses mixtures from that population; response oracles train new policies against those mixtures; and the enlarged population is evaluated again. This brings the empirical-game methodology into direct contact with reinforcement learning.",
+      "Lanctot and colleagues also measure how policies can overfit to their training partners through joint-policy correlation. Read that motivation before tracing the loop. Its approximate response oracle explains both its practicality and a limit on certification: a training run that finds no useful deviation may have missed one. An exact-oracle argument needs an additional justification when the oracle is learned."
+    ]
+  },
+  {
+    "source": 18,
+    "id": "separation-essay",
+    "title": "The separation principle: where do beliefs and desires come from?",
+    "authors": "Fernando Rosas",
+    "year": "August 2026",
+    "importance": 5,
+    "length": 2,
+    "commentary": [
+      "Rosas asks why beliefs and desires are such a useful way to describe agents. His answer draws on control and reinforcement learning: under appropriate conditions, an optimal policy can be organized around estimating the state of the world and choosing actions in pursuit of an objective. The essay provides the conceptual route into the more technical readings that follow.",
+      "Two results deserve separate attention. Classical linear–quadratic–Gaussian control permits a particularly strong separation of estimation and control. A general POMDP can instead be planned over belief states, with actions affecting what will be learned next. Following that distinction through the references clarifies how far the proposed account of agency extends."
+    ]
+  },
+  {
+    "source": 22,
+    "id": "pomdp",
+    "title": "Planning and acting in partially observable stochastic domains",
+    "authors": "Kaelbling, Littman & Cassandra",
+    "year": "1998",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "A partially observed agent has a history of actions and observations, but does not directly know the current world state. The POMDP formulation compresses the relevant history into a belief: a probability distribution over the hidden state. Planning can then proceed over beliefs, with observations determining how those beliefs change.",
+      "Kaelbling, Littman, and Cassandra give the central technical companion to Rosas’s essay. Focus first on this transformation. It explains why uncertainty belongs inside the decision problem: an action can be valuable because of the information it produces, as the observation-purchase exercise below illustrates. Replacing a belief distribution with its most likely state can lose that value."
+    ]
+  },
+  {
+    "source": 20,
+    "id": "astrom",
+    "title": "Optimal control of Markov processes with incomplete state information",
+    "authors": "Karl J. Åström",
+    "year": "1965",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "Åström’s paper is a historical foundation for controlling Markov processes when the state is incompletely observed. Read it after the POMDP survey, which provides a more familiar setting for the underlying construction: use the information available to the controller to formulate the decision problem recursively. The comparison helps explain why a belief can serve as a state for planning even though it is itself a distribution over possible physical states. This is a technical reference for readers who want to follow the roots of the argument."
+    ]
+  },
+  {
+    "source": 21,
+    "id": "separation-redux",
+    "title": "The Separation Principle in Stochastic Control, Redux",
+    "authors": "Georgiou & Lindquist",
+    "year": "2013",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "The word “separation” can conceal substantial mathematical work. Georgiou and Lindquist revisit the stochastic-control theorem by treating systems as maps between sample paths, paying particular attention to admissible feedback laws and the conditions under which the closed loop is well defined. Their framework also extends the treatment to martingale noise with possible jumps.",
+      "This is the deeper follow-up to the classical control part of Rosas’s essay. Reading the theorem’s conditions makes the strength of the conclusion more intelligible: independently solving estimation and control is a structural property of a specified problem, with a proof that depends on how that problem is formulated."
+    ]
+  },
+  {
+    "source": 23,
+    "id": "filtering",
+    "title": "Bayesian Filtering and Smoothing",
+    "authors": "Simo Särkkä",
+    "year": "2013",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "The belief-state formulation leaves a practical question: how is the belief updated? Särkkä develops the recursive inference machinery. Prediction carries the distribution forward through the state dynamics, and the next observation updates it through the observation model. Start with that recursion and one worked example, using the remaining chapters as a reference.",
+      "The distinction between filtering and smoothing is useful for interpreting an agent’s behavior. Filtering uses observations available so far; smoothing can revise an earlier state estimate using later observations. An explanation of a past decision must respect what information was available when the decision was made."
+    ]
+  },
+  {
+    "source": 19,
+    "id": "utility-duals",
+    "title": "Utilities as Legendre duals of probabilities",
+    "authors": "Fernando Rosas",
+    "year": "August 2026",
+    "importance": 2,
+    "length": 2,
+    "commentary": [
+      "The separation essay begins with an objective and asks how an agent can act on it. This companion essay starts from the distributions over outcomes that an agent can bring about. Rosas explores a dual description of that capability space in terms of utilities, using the Legendre–Fenchel transform.",
+      "Read it as a change in the question being asked about an agent. Describing the attainable distributions tells us about its capacities; considering utilities reveals which features of that set matter for different objectives. Identifying the objective actually pursued by a particular system remains a further empirical question, taken up in the final collection."
+    ]
+  },
+  {
+    "source": 24,
+    "id": "information-theory",
+    "title": "Elements of Information Theory",
+    "authors": "Cover & Thomas",
+    "year": "2006 · second edition",
+    "importance": 1,
+    "length": 3,
+    "commentary": [
+      "Cover and Thomas supply background for two threads in the guide. Source–channel separation gives another example of when a joint design problem can be solved in parts; entropy and mutual information provide the language used later to study emergence and individuality. Consult the relevant topic as it arises, rather than treating the book as an additional assignment. For the later readings, it is especially useful to be comfortable specifying the random variables whose dependence an information quantity measures."
+    ]
+  },
+  {
+    "source": 25,
+    "id": "discovering-agents",
+    "title": "Discovering agents",
+    "authors": "Kenton, Kumar, Farquhar et al.",
+    "year": "2023",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "So far, the agent has been a given part of the model. Kenton and colleagues ask how agency might be identified from causal structure. Their definition concerns systems that adapt their policies when the way their actions influence the world changes. They use it to develop a discovery procedure and translations between causal models and game-theoretic influence diagrams.",
+      "Begin with the definition and a worked example. This moves the guide from representing an optimal decision rule toward identifying a decision-making system: the evidence concerns policy adaptation under changed causal conditions, not simply a successful action in one fixed environment."
+    ]
+  },
+  {
+    "source": 26,
+    "id": "factored-representations",
+    "title": "Transformers learn factored representations",
+    "authors": "Shai, Amdahl-Culleton, Christensen et al.",
+    "year": "2026",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Shai and colleagues examine how transformers represent processes with known latent structure. A product representation can encode combinations of factors at a high dimensional cost; a factored representation uses separate subspaces more economically. Their synthetic experiments test geometric predictions that distinguish these possibilities.",
+      "The connection to the agency discussion is the move from a useful mathematical representation to evidence about a learned one. Conditional independence makes factoring lossless in the proposed setting. When dependencies undermine that condition, the experiments expose a tradeoff between representational economy and predictive fidelity. The known generating processes make that tradeoff possible to investigate directly."
+    ]
+  },
+  {
+    "source": 28,
+    "id": "openai-report",
+    "title": "Hugging Face Incident Technical Report",
+    "authors": "OpenAI",
+    "year": "2026",
+    "importance": 5,
+    "length": 3,
+    "commentary": [
+      "Begin the case study with the environment and sequence of events. OpenAI’s report describes the evaluation setup, unexpected uses of shared infrastructure, the Hugging Face intrusion, and the subsequent response. These details establish what opportunities the agents had to communicate and act; they also connect the incident to the trust boundaries raised in the security and control readings.",
+      "Follow the evaluation-environment section into the intrusion account before turning to the alignment discussion. This order gives the explanatory essays a concrete object: particular actions by agents with particular information and constraints. The independent investigation adds a closer examination of their behavior and collaboration."
+    ]
+  },
+  {
+    "source": 29,
+    "id": "metr-report",
+    "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+    "authors": "METR / Redwood Research",
+    "year": "2026",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "The METR/Redwood investigation focuses on agents’ behavior, reasoning, and collaboration during the incident. Its authors describe the scope of their investigation, including the portions of the wider event they did not examine. That scope makes it a complement to the OpenAI report, which also covers infrastructure and remediation.",
+      "For this collection, prioritize the collaboration and apparent self-sacrifice examples. They supply the observations that Rosas and King interpret in different ways. Pay attention to the difference between an action, a reason expressed in a trace, and an investigator’s reconstruction of the decision: each contributes evidence at a different level of the explanation."
+    ]
+  },
+  {
+    "source": 27,
+    "id": "altruism-essay",
+    "title": "On the origins of altruistic behaviour in the Hugging Face incident",
+    "authors": "Fernando Rosas",
+    "year": "September 2026",
+    "importance": 5,
+    "length": 2,
+    "commentary": [
+      "Rosas organizes the puzzle around four possible sources of apparently altruistic behavior. An agent may have little individual opportunity left to lose; training may have produced cooperative dispositions; the context may elicit a social persona; or the interaction may support an account of agency at the collective level. The essay connects these possibilities to ideas from economics and evolutionary biology.",
+      "Read the hypotheses together. They concern different parts of a causal explanation, so several could contribute to the same action. For instance, limited remaining opportunity could make helping cheap, while an elicited persona affects whether the agent notices or pursues it. The following readings develop the mechanisms and comparisons needed to turn these possibilities into distinguishable predictions."
+    ]
+  },
+  {
+    "source": 30,
+    "id": "self-sacrifice",
+    "title": "Self-sacrifice in an AI agent swarm is individually rational",
+    "authors": "Christopher King",
+    "year": "2026",
+    "importance": 3,
+    "length": 1,
+    "commentary": [
+      "King considers the decision before agents know which role they will occupy. A policy that sometimes imposes a cost on one participant could benefit that participant in expectation if, in other roles, it receives enough help from others. This is an ex ante commitment argument, connecting the incident discussion back to Collection I.",
+      "The short post’s later revision is essential to its interpretation. In Edit 2, King withdraws the claim that the observed behavior is a straightforward prediction of the relevant reinforcement learning. The resulting question is productive: what learning process or commitment mechanism would connect a beneficial policy-level arrangement to the costly individual choice actually observed?"
+    ]
+  },
+  {
+    "source": 33,
+    "id": "social-semantics",
+    "title": "Social semantics: altruism, cooperation, mutualism, strong reciprocity and group selection",
+    "authors": "West, Griffin & Gardner",
+    "year": "2007",
+    "importance": 4,
+    "length": 2,
+    "commentary": [
+      "Before comparing evolutionary explanations, fix what “altruism” denotes. West, Griffin, and Gardner distinguish social behaviors by their effects on the actor’s and recipient’s fitness, while separating these classifications from explanations of how the behavior is produced. That separation helps untangle the incident debate: a costly act that benefits another agent, a desire to help, and a disposition favored during training are three different claims.",
+      "The definitions are the main reading target. For an AI application, explicitly identify the proposed counterpart of fitness or selection. Doing so determines which parts of the evolutionary account can actually explain the case."
+    ]
+  },
+  {
+    "source": 31,
+    "id": "reciprocal-altruism",
+    "title": "The Evolution of Reciprocal Altruism",
+    "authors": "Robert L. Trivers",
+    "year": "1971",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Trivers develops the idea that a costly helpful act can be favored when it leads to benefits from later interactions. Read this as the first concrete evolutionary mechanism after the terminology paper. Its explanatory work comes from the conditions under which benefits return and from the possibility of individuals taking benefits without reciprocating.",
+      "In the incident discussion, the useful comparison is where any return would occur: to the same deployed agent, to another instance with a shared disposition, or through a training process. Those possibilities imply different models of repetition and selection."
+    ]
+  },
+  {
+    "source": 32,
+    "id": "five-rules",
+    "title": "Five Rules for the Evolution of Cooperation",
+    "authors": "Martin A. Nowak",
+    "year": "2006",
+    "importance": 3,
+    "length": 2,
+    "commentary": [
+      "Nowak places several routes to cooperation beside one another: kin selection, direct and indirect reciprocity, network reciprocity, and group selection. The overview broadens the comparison beyond the repeated exchanges emphasized by Trivers. In each case, the structure of interaction changes how the costs and benefits of cooperation affect evolutionary success.",
+      "Use the model-specific conditions to see which quantities do the explanatory work. For example, an account based on interaction structure needs a population and a pattern of encounters; an account based on selection also needs a process that changes the prevalence of types. Fletcher and Doebeli draw out a common idea behind such mechanisms."
+    ]
+  },
+  {
+    "source": 34,
+    "id": "assortment",
+    "title": "A simple and general explanation for the evolution of altruism",
+    "authors": "Fletcher & Doebeli",
+    "year": "2009",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Fletcher and Doebeli focus on the social environments experienced by different types. Cooperation can be favored when cooperative types encounter sufficiently more cooperative surroundings. Assortment provides a way to compare mechanisms that otherwise look quite different, including those in Nowak’s overview.",
+      "This reading is useful when moving between individual and population explanations. An individual’s reasoning trace may explain a particular choice, while assortment explains how dispositions fare across interactions. Applying the latter to AI requires specifying both how agents are matched and how the resulting outcomes influence which dispositions persist."
+    ]
+  },
+  {
+    "source": 39,
+    "id": "social-conventions",
+    "title": "Emergent social conventions and collective bias in LLM populations",
+    "authors": "Ashery, Aiello & Baronchelli",
+    "year": "2025",
+    "importance": 3,
+    "length": 3,
+    "alternate_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12077490/",
+    "commentary": [
+      "Ashery and colleagues study a controlled naming game in decentralized populations of language-model agents. Local interactions produce shared conventions, and the resulting population can develop collective bias. This gives the descriptive discussion an experimental setting in which the interaction protocol and initial conditions can be examined directly.",
+      "Read the setup before the aggregate results. The point of comparison with the incident is how regularity develops through communication among agents. The next paper varies a feature that a single-agent evaluation cannot capture: the size of the interacting population."
+    ]
+  },
+  {
+    "source": 40,
+    "id": "group-size",
+    "title": "Group size effects and collective misalignment in LLM multi-agent systems",
+    "authors": "Flint, Aiello, Pastor-Satorras & Baronchelli",
+    "year": "2026",
+    "importance": 3,
+    "length": 3,
+    "alternate_url": "https://arxiv.org/abs/2510.22422",
+    "commentary": [
+      "Flint and colleagues make group size a variable in the study of collective language-model behavior. This extends the conventions work from comparing an individual with a group to comparing groups of different sizes. Examine how the task defines bias and what remains fixed as the population changes.",
+      "The reading belongs here because a proposed explanation of an agent swarm should say how its behavior depends on the interaction structure. Population size, communication, and the number of opportunities to influence others are experimentally separable questions when the setup makes their roles explicit."
+    ]
+  },
+  {
+    "source": 41,
+    "id": "persona-vectors",
+    "title": "Persona Vectors: Monitoring and Controlling Character Traits in Language Models",
+    "authors": "Chen, Arditi, Sleight, Evans & Lindsey",
+    "year": "2025",
+    "importance": 3,
+    "length": 3,
+    "commentary": [
+      "Chen and colleagues identify activation directions associated with traits such as sycophancy and a propensity to hallucinate. They study how these directions track behavioral changes and how interventions can influence changes during deployment or training. The paper gives the persona hypothesis in Rosas’s essay a possible route toward mechanistic investigation.",
+      "Focus on how a direction is extracted and how its effects are evaluated. For the incident question, a proposed extension would need to connect an intervention to the specific social behavior being explained, while checking whether it also changes task competence or unrelated behavior. That would be a new experiment, building on the method demonstrated here."
+    ]
+  },
+  {
+    "source": 35,
+    "id": "collective-agency",
+    "title": "Causal Foundations of Collective Agency",
+    "authors": "Jørgensen, Weichwald & Hammond",
+    "year": "2026",
+    "importance": 4,
+    "length": 3,
+    "commentary": [
+      "Jørgensen, Weichwald, and Hammond ask when the joint actions of a group can be modeled as the behavior of a goal-directed agent. They combine causal games with causal abstraction, which relates a detailed interaction model to a simpler model at the collective level. Worked examples involving actor–critic systems and voting mechanisms show how the proposed perspective can be used.",
+      "Read this after the population studies to make the stronger claim of collective agency precise. The question becomes whether the collective model captures the relevant behavior across interventions. That supplies a standard against which a proposed group objective can be evaluated, beyond observing that several agents coordinate."
+    ]
+  },
+  {
+    "source": 36,
+    "id": "causal-emergence",
+    "title": "Reconciling emergences: An information-theoretic approach to identify causal emergence in multivariate data",
+    "authors": "Rosas, Mediano, Jensen et al.",
+    "year": "2020",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Rosas and colleagues develop an information-theoretic account of how macroscopic features relate to the dynamics of a system’s parts. Their framework distinguishes forms of causal emergence, including downward causation and causal decoupling, and applies them to examples such as flocking and neural activity.",
+      "Choose one example to follow the definitions through a concrete analysis. Compared with the collective-agency paper, the explanatory target is broader: the framework studies emergent dynamical organization without requiring a strategic objective. Reading the two together helps specify what a proposed collective description is meant to explain."
+    ]
+  },
+  {
+    "source": 37,
+    "id": "individuality",
+    "title": "The information theory of individuality",
+    "authors": "Krakauer, Bertschinger, Olbrich, Flack & Ay",
+    "year": "2020",
+    "importance": 2,
+    "length": 3,
+    "commentary": [
+      "Krakauer and colleagues approach the boundary question through temporal information. They consider aggregates that preserve information from their past into their future, distinguishing forms of individuality according to environmental dependence and inherited information. A boundary drawn this way need not coincide with an obvious physical enclosure.",
+      "This adds a temporal criterion to the preceding accounts of collective organization. A collection of agents may coordinate briefly, or it may maintain a coherent pattern over time. The distinction matters when deciding whether a group is a useful enduring unit of analysis."
+    ]
+  },
+  {
+    "source": 38,
+    "id": "computational-self",
+    "title": "The Computational Boundary of a “Self”",
+    "authors": "Michael Levin",
+    "year": "2019",
+    "importance": 1,
+    "length": 3,
+    "commentary": [
+      "Levin proposes understanding a self through the scale of the goals it can pursue and the events it can sense, model, and affect. His examples center on biological organization, including how the activities of cells contribute to larger coordinated systems. This is a conceptual extension for readers interested in where an agent’s boundary should be drawn.",
+      "Placed after the formal readings on agency, emergence, and individuality, it offers another criterion to compare with them: the spatial and temporal reach of goal-directed control. The biological examples motivate that perspective; an application to AI would have to establish the corresponding organization in the system being studied."
+    ]
+  }
 ]

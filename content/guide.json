@@ -1,0 +1,13 @@
+{
+  "subtitle": "How agents cooperate, learn, and act together",
+  "introduction": [
+    "An agent’s best move depends on what other agents do. Those agents may learn, inspect one another’s programs, share information, or change the environment in which future decisions are made. Each possibility changes the interaction—and the questions we need to ask about it.",
+    "This guide begins with strategic commitments and follows the problem through learning dynamics, oversight, and empirical games. It then turns to beliefs and goals within an agent, before asking how to explain behavior that emerges across a group. The readings form a sequence, with shorter routes for readers following a particular lecture or question."
+  ],
+  "closing_title": "What have we learned about the interaction?",
+  "closing_introduction": [
+    "The collections approach interacting agents at different levels. Program equilibrium studies the incentives created by visible procedures. Learning dynamics follows changes in a population. Control and empirical games investigate an interaction through a chosen model and set of strategies. The agency readings examine how decisions can be organized; the descriptive readings ask which mechanisms account for what agents actually do.",
+    "Bring one result from each collection to the closing discussion. Explain how it was established and which further question it leaves you with. The table provides a starting comparison."
+  ],
+  "closing_end": "One useful final task is to choose two perspectives that bear on the same case. Explain what each contributes, then describe the additional model or experiment needed to connect their conclusions."
+}

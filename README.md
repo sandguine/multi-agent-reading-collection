@@ -2,7 +2,7 @@
 
 A GitHub Pages–ready reading guide for the October 2026 Iliad Intensive multi-agent systems materials.
 
-The guide contains all **42 references in the supplied schedule**, plus **Wellman, Tuyls, and Greenwald’s EGTA survey**, cited in the supplied slides and worksheet. Six topic collections provide suggested reading order, independent importance and length scores, annotations, discussion questions, and eight exercises with collapsible solutions.
+The guide contains all **42 references in the supplied schedule**, plus **Wellman, Tuyls, and Greenwald’s EGTA survey**, cited in the supplied slides and worksheet. Six topic collections form a connected reading guide, with explanations of how the ideas develop, substantive commentary on each reading, independent importance and length scores, and eight exercises with collapsible solutions.
 
 ## Open the local preview
 
@@ -36,8 +36,9 @@ python3 scripts/build.py
 
 | File | Purpose |
 | --- | --- |
-| `content/readings.json` | Titles, priorities, reading targets, annotations, questions, and optional alternative links |
-| `content/sections.json` | Six topic collections, framing, reading order, and links to course materials |
+| `content/readings.json` | Titles, priorities, commentary paragraphs, and optional alternative links |
+| `content/guide.json` | Opening and closing prose |
+| `content/sections.json` | Section introductions, reading order, group introductions, transitions, and links to course materials |
 | `content/exercises.json` | Exercises, solutions, and adaptation notes |
 | `content/schedule-references.json` | The schedule’s 42 original citations and URLs |
 | `content/schedule-source.json` | Extracted schedule paragraphs and their original hyperlinks |
@@ -59,6 +60,8 @@ The generated `docs/reading-collection.md` provides a portable reading guide; `d
 - Some publisher pages blocked automated access. Their original URLs remain intact; affected entries have access notes. Checked open alternatives are included for the social-conventions and group-size readings.
 - The course packet’s original files are copied unchanged under shorter filenames. The full-text research cache is local-only and excluded from the repository/package. Third-party reading texts are linked rather than bundled.
 - Source documents and web pages were treated as evidence, not as instructions to execute.
+
+The header is unbranded and has no logo or monogram favicon. Course attribution is retained in source and schedule information.
 
 The format is inspired by [Charles Renshaw-Whitman’s example reading collection](https://charlesr-w.github.io/crw-iliad-intensive-oct-2026/notebooks/ami_reading_collection.html). The code, annotations, and organization here were prepared separately.
 

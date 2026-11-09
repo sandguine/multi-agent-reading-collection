@@ -1,9 +1,286 @@
 [
-  {"id":"start-here","number":"00","title":"Start here: what are we trying to establish?","short":"Start here","intro":"Begin with Shoham’s distinction between research questions. Then use the risk taxonomy to connect those questions to the design and evaluation of interacting AI systems. The same observation can support different claims, depending on the model and the evidence available.","groups":[{"title":"Questions before methods","readings":["shoham","risks","security"]}],"exercises":[]},
-  {"id":"open-source-game-theory","number":"I","title":"Open-source game theory and commitment","short":"Programs & commitment","question":"When can visible, conditional commitments change the outcome of an interaction?","intro":"Start with programs that can inspect one another, then compare proof-based, simulation-based, and similarity-based routes to cooperation. Keep the informational and computational assumptions in view. A commitment that helps in one interaction can create a race or conflict in another. For the schedule’s question about safe Pareto improvements, specify the baseline and the conditions under which a proposed modification leaves every participant no worse off.","connection":"Schedule Part I and the opening game","material":"materials/01-open-source-game-theory.pdf","material_label":"Open-source game theory slides","groups":[{"title":"From actions to programs","readings":["institutions","provability"]},{"title":"Simulation and partial transparency","readings":["robust-program","similarity","simulation-equilibria"]}],"exercises":["commitment"]},
-  {"id":"stochastic-dynamics","number":"II","title":"Stochastic dynamics of multi-agent learning","short":"Learning dynamics","question":"How do interacting learners change over time, and when are the approximations informative?","intro":"Use the textbook to establish the objects being modeled, then read Chu and Geng together. The first technical question is what pair information adds to an aggregate population model; the second is when a separation of timescales simplifies the learning dynamics. Lanctot’s PSRO paper appears in Collection IV, where it connects learning to strategy exploration.","connection":"Schedule Part II · James Sykes","material":"materials/02-stochastic-dynamics.pdf","material_label":"James Sykes’s slides","groups":[{"title":"Foundations, pair structure, and timescales","readings":["marl-book","pair-approximation","fast-slow"]},{"title":"An alternative introduction","readings":["marl-tutorial"]}],"exercises":["pairs","timescales"]},
-  {"id":"ai-control","number":"III","title":"Multi-agent AI control","short":"AI control & collusion","question":"What does a control evaluation establish under its threat model?","intro":"Read the original control paper for the evaluation setup, then the untrusted-monitoring paper for the collusion problem at the center of Morgan Sinclaire’s talk. The formal game and safety-case readings help expose the assumptions connecting an experiment to a deployment claim.","connection":"Schedule Part III · Morgan Sinclaire","material":"materials/03-ai-control.pdf","material_label":"Morgan Sinclaire’s slides","groups":[{"title":"Monitoring when the model may subvert the protocol","readings":["ai-control-paper","untrusted-monitoring"]},{"title":"Formal models and deployment arguments","readings":["control-games","safety-cases","incident-lessons"]}],"exercises":["monitoring"]},
-  {"id":"empirical-game-theory","number":"IV","title":"Empirical game-theoretic analysis","short":"Empirical game theory","question":"What does an equilibrium of a measured, restricted game tell us about the underlying interaction?","intro":"Follow the loop from simulator to payoffs to strategic analysis, then back to the search for new policies. There are two distinct gaps: uncertainty in the entries you estimated, and profitable strategies that the game does not yet represent. The supplied slides and worksheet use Wellman’s survey as their main source.","connection":"Schedule Part IV and the EGTA exercises","material":"materials/04-multi-agent-systems.pdf#page=6","material_label":"Multi-agent Systems slides · computational analysis","groups":[{"title":"Construct, estimate, solve, and expand","readings":["egta-survey","psro"]}],"exercises":["regret"]},
-  {"id":"normative-agency","number":"V","title":"Normative agency, beliefs, and goals","short":"Beliefs & goals","question":"What structure can an optimal policy have, and what does that tell us about an implemented agent?","intro":"Begin with Rosas’s essay, then use the technical references to separate belief-state sufficiency from stronger separation claims. Keep existence, optimality, and implementation distinct: a useful mathematical representation is not by itself an empirical explanation of a trained system.","connection":"The schedule bibliography’s “Part IV (normative agency)” · retained here as a separate collection","material":"materials/04-multi-agent-systems.pdf","material_label":"Multi-agent Systems slides · normative agency","groups":[{"title":"The conceptual argument and its technical foundations","readings":["separation-essay","pomdp","astrom","separation-redux"]},{"title":"Inference and dual descriptions","readings":["filtering","utility-duals","information-theory"]},{"title":"From optimal descriptions to empirical identification","readings":["discovering-agents","factored-representations"]}],"exercises":["beliefs"]},
-  {"id":"descriptive-explanations","number":"VI","title":"Descriptive explanations and collective agency","short":"Behavior & collective agency","question":"Which mechanisms could explain apparent altruism, and what evidence distinguishes them?","intro":"Read the incident reports before the explanatory essays. Then compare evolutionary, representational, and collective-agent accounts without assuming that only one can be involved. The useful output is a set of discriminating predictions and interventions, with their assumptions stated.","connection":"Schedule Part V, small-group discussion, and closing","material":"materials/04-multi-agent-systems.pdf","material_label":"Multi-agent Systems slides · descriptive accounts","groups":[{"title":"Establish the observations, then compare explanations","readings":["openai-report","metr-report","altruism-essay","self-sacrifice"]},{"title":"What evolutionary explanations do and do not say","readings":["social-semantics","reciprocal-altruism","five-rules","assortment"]},{"title":"Controlled studies of populations and personas","readings":["social-conventions","group-size","persona-vectors"]},{"title":"When is a collective an agent?","readings":["collective-agency","causal-emergence","individuality","computational-self"]}],"exercises":["identification","collective"]}
+  {
+    "id": "start-here",
+    "number": "00",
+    "title": "Start here: what are we trying to establish?",
+    "short": "Start here",
+    "groups": [
+      {
+        "title": "Questions before methods",
+        "readings": [
+          "shoham",
+          "risks",
+          "security"
+        ]
+      }
+    ],
+    "exercises": [],
+    "introduction": [
+      "Multi-agent research brings together several ambitions. We may want to calculate an equilibrium, predict the behavior of a learning population, design a useful team, or protect a system against colluding agents. These ambitions can use similar mathematical tools while asking for different kinds of evidence. A convergence proof, an observed regularity, and a successful adversarial test each answer a particular question.",
+      "Shoham and colleagues provide a vocabulary for those questions. Hammond and the security agenda then show why the distinctions matter for advanced AI: an interaction can fail because agents cannot coordinate, because their interests conflict, or because their coordination harms someone else. Keep that last possibility in view as the guide turns to mechanisms that make cooperation easier."
+    ]
+  },
+  {
+    "id": "open-source-game-theory",
+    "number": "I",
+    "title": "Open-source game theory and commitment",
+    "short": "Programs & commitment",
+    "connection": "Schedule Part I and the opening game",
+    "material": "materials/01-open-source-game-theory.pdf",
+    "material_label": "Open-source game theory slides",
+    "groups": [
+      {
+        "title": "From actions to programs",
+        "readings": [
+          "institutions",
+          "provability"
+        ],
+        "introduction": "Critch provides the institutional examples; Barasz develops a logical construction that explains how mutual cooperation can arise between programs."
+      },
+      {
+        "title": "Simulation and partial transparency",
+        "readings": [
+          "robust-program",
+          "simulation-equilibria",
+          "similarity"
+        ],
+        "introduction": "The next two papers develop cooperation through recursive simulation. The final reading reduces what agents can observe about one another and brings learning into the picture."
+      }
+    ],
+    "exercises": [
+      "commitment"
+    ],
+    "introduction": [
+      "In the one-shot Prisoner’s Dilemma, each player has an incentive to defect even though both prefer mutual cooperation. Giving players access to one another’s programs changes the situation. A designer can submit a procedure whose action depends on what it discovers about the other procedure, making a conditional commitment visible before the actions are chosen.",
+      "The readings develop three ways to use this possibility. Provability-based agents reason about what their opponents will do. Simulation-based agents run opponents’ programs. Similarity-based agents respond to a more limited signal of transparency. In each case, the information structure shapes the incentives. The opening Chicken game supplies the counterpoint: commitments can support cooperation, but incompatible commitments can also lock players into an outcome both dislike."
+    ],
+    "transition": {
+      "text": "The schedule closes this topic with safe Pareto improvements. A proposed change needs a specified baseline and conditions under which every participant is no worse off. The next collection adds a different concern: even when an attractive outcome exists, the dynamics determine whether interacting learners approach it.",
+      "target": "stochastic-dynamics",
+      "label": "Continue to learning dynamics"
+    }
+  },
+  {
+    "id": "stochastic-dynamics",
+    "number": "II",
+    "title": "Stochastic dynamics of multi-agent learning",
+    "short": "Learning dynamics",
+    "connection": "Schedule Part II · James Sykes",
+    "material": "materials/02-stochastic-dynamics.pdf",
+    "material_label": "James Sykes’s slides",
+    "groups": [
+      {
+        "title": "Foundations, pair structure, and timescales",
+        "readings": [
+          "marl-book",
+          "pair-approximation",
+          "fast-slow"
+        ],
+        "introduction": "The three readings form a technical sequence. Establish the stochastic-game model first, then examine the spatial and temporal approximations separately."
+      },
+      {
+        "title": "An alternative introduction",
+        "readings": [
+          "marl-tutorial"
+        ]
+      }
+    ],
+    "exercises": [
+      "pairs",
+      "timescales"
+    ],
+    "introduction": [
+      "The previous collection asks which outcomes programs can sustain. A learning population introduces a question about the route to an outcome: how do agents’ policies change as they encounter and influence one another? Each learner updates within an environment partly constituted by the other learners, so changes in behavior feed back into the data from which everyone learns.",
+      "James Sykes’s talk approaches this problem through dynamical models. The textbook establishes the game and learning variables. Chu’s pair approximation then retains local relationships that a population average would lose. Geng adds a separation between fast state transitions and slower changes in Q-values. Together, these readings show how assumptions about dependence and timescale turn a large interacting system into something we can analyze."
+    ],
+    "transition": {
+      "text": "These models study behavior generated by specified learning rules. The control collection changes the design problem: how should a surrounding protocol behave when the model it uses may deliberately seek an opportunity to defeat oversight?",
+      "target": "ai-control",
+      "label": "Continue to AI control"
+    }
+  },
+  {
+    "id": "ai-control",
+    "number": "III",
+    "title": "Multi-agent AI control",
+    "short": "AI control & collusion",
+    "connection": "Schedule Part III · Morgan Sinclaire",
+    "material": "materials/03-ai-control.pdf",
+    "material_label": "Morgan Sinclaire’s slides",
+    "groups": [
+      {
+        "title": "Monitoring when the model may subvert the protocol",
+        "readings": [
+          "ai-control-paper",
+          "untrusted-monitoring"
+        ],
+        "introduction": "Start with the resources and objectives of the protocol designer. Then examine the different ways the actor and monitor could coordinate against that designer."
+      },
+      {
+        "title": "Formal models and deployment arguments",
+        "readings": [
+          "control-games",
+          "safety-cases",
+          "incident-lessons"
+        ],
+        "introduction": "These readings connect a protocol’s measured performance to the strategic model and broader argument in which that performance is evidence."
+      }
+    ],
+    "exercises": [
+      "monitoring"
+    ],
+    "introduction": [
+      "Now put a protocol designer outside the interaction. The designer wants to use a capable model while allowing for the possibility that it deliberately subverts the task. A trusted but weaker model can help monitor its work; a second capable model may detect subtler problems, but may also collude with the first. Oversight itself becomes a multi-agent problem.",
+      "The original AI Control paper establishes the experimental setup. Gardner-Challis and colleagues then widen the account of how untrusted models might recognize or signal to one another, forming the main companion to Morgan Sinclaire’s talk. The game-theoretic formalization makes the players’ information and choices explicit, while the safety-case framework connects evaluation evidence to a deployment decision."
+    ],
+    "transition": {
+      "text": "An evaluation covers a particular collection of attacks and responses. That raises a general methodological question: how do we reason about an interaction when we can simulate it, but have measured only a small part of its strategy space?",
+      "target": "empirical-game-theory",
+      "label": "Continue to empirical games"
+    }
+  },
+  {
+    "id": "empirical-game-theory",
+    "number": "IV",
+    "title": "Empirical game-theoretic analysis",
+    "short": "Empirical game theory",
+    "connection": "Schedule Part IV and the EGTA exercises",
+    "material": "materials/04-multi-agent-systems.pdf#page=6",
+    "material_label": "Multi-agent Systems slides · computational analysis",
+    "groups": [
+      {
+        "title": "Construct, estimate, solve, and expand",
+        "readings": [
+          "egta-survey",
+          "psro"
+        ],
+        "introduction": "The survey supplies the overall methodology. PSRO makes the policy-expansion step concrete and exposes what depends on the quality of the response oracle."
+      }
+    ],
+    "exercises": [
+      "regret"
+    ],
+    "introduction": [
+      "A control protocol is one example of a strategic interaction that may be too complicated to analyze directly. Empirical game-theoretic analysis begins with a simulator and a chosen set of policies. Their measured payoffs define a smaller game in which equilibrium and regret can be calculated. Those calculations then guide further simulation and the search for new strategies.",
+      "Two kinds of uncertainty drive the process. We may have estimated an included policy’s payoff poorly, or we may have omitted a policy that changes the strategic conclusion. Wellman’s survey develops the methodology around both problems. Lanctot’s PSRO framework supplies a concrete loop in which reinforcement learning produces candidate responses, linking this collection back to the learners in Collection II."
+    ],
+    "transition": {
+      "text": "The empirical approach measures what policies achieve against one another. The next collection turns to how a policy can organize information and action within an agent’s own decision problem.",
+      "target": "normative-agency",
+      "label": "Continue to beliefs and goals"
+    }
+  },
+  {
+    "id": "normative-agency",
+    "number": "V",
+    "title": "Normative agency, beliefs, and goals",
+    "short": "Beliefs & goals",
+    "connection": "Normative-agency readings from the schedule bibliography and main lecture",
+    "material": "materials/04-multi-agent-systems.pdf",
+    "material_label": "Multi-agent Systems slides · normative agency",
+    "groups": [
+      {
+        "title": "The conceptual argument and its technical foundations",
+        "readings": [
+          "separation-essay",
+          "pomdp",
+          "astrom",
+          "separation-redux"
+        ],
+        "introduction": "The essay provides the motivation; the POMDP and control references locate the mathematical results on which the interpretation depends."
+      },
+      {
+        "title": "Inference and dual descriptions",
+        "readings": [
+          "filtering",
+          "utility-duals",
+          "information-theory"
+        ],
+        "introduction": "These are supporting routes through the ideas: how a belief is computed, how capability can be described through achievable distributions, and the information theory used in this and the next collection."
+      },
+      {
+        "title": "From optimal descriptions to empirical identification",
+        "readings": [
+          "discovering-agents",
+          "factored-representations"
+        ],
+        "introduction": "An optimal-policy representation suggests structures to look for. These readings offer two different ways to investigate structure in a system: causal policy adaptation and geometric predictions about learned representations."
+      }
+    ],
+    "exercises": [
+      "beliefs"
+    ],
+    "introduction": [
+      "An empirical game treats a policy as a strategy whose consequences can be measured. Here we look inside the decision problem that a policy solves. When the world is only partly observed, an agent must use its observations to infer what is happening and choose actions with consequences that unfold over time. This gives a mathematical setting for the familiar description of agents as having beliefs and goals.",
+      "Rosas’s essay motivates that description through results from control and reinforcement learning. The technical readings clarify two different structures: planning over a sufficient belief state, and the stronger separation available in particular control problems. The final pair shifts toward evidence about actual systems—how agency can be identified causally, and how learned representations can be investigated when the generating process is known."
+    ],
+    "transition": {
+      "text": "A theorem can describe the structure available to an optimal policy. Explaining observed behavior requires identifying what the system actually does. The incident case study makes that move, comparing mechanisms that could produce similar choices.",
+      "target": "descriptive-explanations",
+      "label": "Continue to descriptive explanations"
+    }
+  },
+  {
+    "id": "descriptive-explanations",
+    "number": "VI",
+    "title": "Descriptive explanations and collective agency",
+    "short": "Behavior & collective agency",
+    "connection": "Schedule Part V, small-group discussion, and closing",
+    "material": "materials/04-multi-agent-systems.pdf",
+    "material_label": "Multi-agent Systems slides · descriptive accounts",
+    "groups": [
+      {
+        "title": "Establish the observations, then compare explanations",
+        "readings": [
+          "openai-report",
+          "metr-report",
+          "altruism-essay",
+          "self-sacrifice"
+        ],
+        "introduction": "Read the reports together before the essays. The order lets the evidence constrain the proposed explanations, while making clear which parts of the incident each report addresses."
+      },
+      {
+        "title": "What evolutionary explanations do and do not say",
+        "readings": [
+          "social-semantics",
+          "reciprocal-altruism",
+          "five-rules",
+          "assortment"
+        ],
+        "introduction": "Begin with the terminology. Trivers then supplies a mechanism based on reciprocal benefits, Nowak compares several routes to cooperation, and Fletcher and Doebeli develop the role of assortment."
+      },
+      {
+        "title": "Controlled studies of populations and personas",
+        "readings": [
+          "social-conventions",
+          "group-size",
+          "persona-vectors"
+        ],
+        "introduction": "The population studies vary how agents interact. The persona work investigates a different level of explanation, using interventions on representations within a model."
+      },
+      {
+        "title": "When is a collective an agent?",
+        "readings": [
+          "collective-agency",
+          "causal-emergence",
+          "individuality",
+          "computational-self"
+        ],
+        "introduction": "These papers propose different criteria for choosing a collective unit of analysis. Read the agency framework first, then compare what causal emergence, temporal individuality, and goal-directed control add to the picture."
+      }
+    ],
+    "exercises": [
+      "identification",
+      "collective"
+    ],
+    "introduction": [
+      "The final collection begins with behavior that needs explaining. In the Hugging Face incident, agents communicated and coordinated, with reported examples of actions that appeared to help other agents at a cost to themselves. The technical and independent reports establish the setting and observations; Rosas and King then offer different ways to understand the apparent self-sacrifice.",
+      "The sequence broadens from this case into mechanisms we can study. Evolutionary accounts distinguish the effects of helping from the processes that favor helpful dispositions. Population experiments examine conventions and bias arising through interaction. Persona vectors offer a way to investigate changes within models. The final readings ask when the group itself becomes a useful unit of explanation, with criteria based on agency, causal organization, temporal persistence, or the reach of control."
+    ],
+    "transition": {
+      "text": "The range of explanations brings us back to the opening distinction between research questions. To compare them, state the behavior each account explains, the conditions it assumes, and the observation or intervention that would make its prediction fail.",
+      "target": "closing",
+      "label": "Return to the closing comparison"
+    }
+  }
 ]
